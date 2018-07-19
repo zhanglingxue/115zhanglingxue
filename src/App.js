@@ -57,7 +57,8 @@ class App extends Component {
             desc:null,
             time:null,
             checkbox:false,
-            multipleChoice: false
+            multipleChoice: false,
+            deleArr:[],
         }
     }
 
@@ -79,7 +80,7 @@ class App extends Component {
     renderMessages = () => {
         const multipleChoice = this.state.multipleChoice;
         return this.state.messages.map((item,index)=>{
-            return <MessageItemView key={index} item={item}  show1={this.onItemClick.bind(this,index)} mull={multipleChoice}/>
+            return <MessageItemView key={index} item={item}  show1={this.onItemClick.bind(this,index)} mull={multipleChoice} delete={this.handDeleteDiv.bind(this,index)}/>
         })
     }
 
@@ -106,6 +107,31 @@ class App extends Component {
             time:event.target.value
         })
     }
+
+    handDeleteDiv = (key,event) =>{
+        this.setState({
+            checkbox:!this.state.checkbox
+        })
+        if(event.target.checked){
+            this.state.deleArr.push(key);
+        }else if(!event.target.checked ){
+            for(let i in this.state.deleArr ){
+                if(this.state.deleArr[i] === key){
+                    delete this.state.deleArr[i]
+                }
+            }
+        }
+    }
+
+    moreDelete = () =>{
+        this.state.deleArr.map((item,index)=>{
+            delete this.state.messages[item]
+        })
+        this.setState({
+            messages:this.state.messages,
+            multipleChoice:false
+        })
+    }
     /* --获取输入框值结束-- */
 
     //显示浮动层内容
@@ -118,7 +144,7 @@ class App extends Component {
     renderInput = () =>{
         if(this.state.showInput)
             return (
-            <InputView  show3={this.handAddDiv.bind(this)} show4={this.handAddDiv1.bind(this)} show5={this.handAddDiv2.bind(this)} submit={this.renderDiv}/>
+            <InputView  show3={this.handAddDiv.bind(this)} show4={this.handAddDiv1.bind(this)} show5={this.handAddDiv2.bind(this)} submit={this.renderDiv} />
         )
     }
     
@@ -139,7 +165,6 @@ class App extends Component {
             this.setState({
                 messages:newMessage,
                 showInput:!this.state.showInput,
-
             })
         }  
     }
@@ -167,6 +192,7 @@ class App extends Component {
                 multipleChoice:true,
                 showDialog:!this.state.showDialog,
             })
+
         }
     }
 
@@ -179,9 +205,7 @@ class App extends Component {
                 </div>
         )
     }
-    moreDelete = () =>{
-        
-    }
+   
 
     overDelete = () =>{
         this.setState({

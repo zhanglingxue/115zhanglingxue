@@ -7,11 +7,11 @@ export default class MessageItem extends Component{
         super(props);
     }
 
-    renderChecxBox = () =>{
+    renderCheckBox = () =>{
         const {mull} = this.props;
         return mull ? (
             <div className="checkBox">
-                <input type="checkbox"  /> 
+                <input type="checkbox"  onChange={this.props.delete}/> 
             </div>
         ) : null
     }
@@ -21,7 +21,7 @@ export default class MessageItem extends Component{
         const {item,mull} = this.props;
         return(
             <li className="eve_content"  >
-                {this.renderChecxBox()}
+                {this.renderCheckBox()}
                 <img src={item.img} />
                 <div className="textContent">
                     <p className="chatName">{item.title}</p>
