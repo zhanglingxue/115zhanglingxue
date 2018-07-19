@@ -137,7 +137,7 @@ ul li{
 .timeRight{
   float: right;
   height: 100%;
-  width: 80px;
+  width: 65px;
 }
 .chatTime{
   /* width: 75px; */
@@ -152,7 +152,7 @@ ul li{
   height:20px;
   float: right;
   margin-right: 5px;
-  width:70px;
+  width:44px;
   background-color:#cdd5e0; 
   border-top-style: none;
   border-right-style: none;
