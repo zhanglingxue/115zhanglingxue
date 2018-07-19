@@ -57,6 +57,7 @@ class App extends Component {
             desc:null,
             time:null,
             checkbox:false,
+            multipleChoice: false
         }
     }
 
@@ -76,8 +77,9 @@ class App extends Component {
     }
     //循环显示页面聊天框
     renderMessages = () => {
+        const multipleChoice = this.state.multipleChoice;
         return this.state.messages.map((item,index)=>{
-            return <MessageItemView key={index} item={item}  show1={this.onItemClick.bind(this,index)}/>
+            return <MessageItemView key={index} item={item}  show1={this.onItemClick.bind(this,index)} mull={multipleChoice}/>
         })
     }
 
@@ -122,18 +124,24 @@ class App extends Component {
     
     //增加聊天对话到顶部
     renderDiv = () =>{
-        const newMessage = this.state.messages.slice()
-        newMessage.unshift({
-            img:require('./img/1414.jpg'),
-            title:this.state.title,
-            description:this.state.desc,
-            time:this.state.time
-        })
-        this.setState({
-            messages:newMessage,
-            showInput:!this.state.showInput,
+        if(!this.state.title || !this.state.desc ||!this.state.time){
+            this.setState({
+                showInput:!this.state.showInput,
+             })
+        }else{
+            const newMessage = this.state.messages.slice()
+            newMessage.unshift({
+                img:require('./img/1414.jpg'),
+                title:this.state.title,
+                description:this.state.desc,
+                time:this.state.time
+            })
+            this.setState({
+                messages:newMessage,
+                showInput:!this.state.showInput,
 
-         })
+            })
+        }  
     }
 
     //打印浮动层   //此处使用switch有问题
@@ -145,19 +153,43 @@ class App extends Component {
             copeMessage.unshift(temp)
             this.setState({
                 messages:copeMessage,
+                showDialog:!this.state.showDialog,
             });
         }else if(event.target.innerHTML === "删除"){
             delete copeMessage[this.state.key]
             this.setState({
                 messages:copeMessage,
+                showDialog:!this.state.showDialog,
+
             });
         }else if(event.target.innerHTML === "多选删除"){
-            
+            this.setState({
+                multipleChoice:true,
+                showDialog:!this.state.showDialog,
+            })
         }
     }
 
+    renderChanceDele = () =>{
+        if(this.state.multipleChoice)
+            return (
+                <div className="chanceDelete">
+                    <button onClick={this.moreDelete}>批量删除</button>
+                    <button onClick={this.overDelete}>取消</button>
+                </div>
+        )
+    }
+    moreDelete = () =>{
+        
+    }
 
-    
+    overDelete = () =>{
+        this.setState({
+            multipleChoice:false,
+            
+        })
+    }
+
   render() {
     return (
         <div >
@@ -181,6 +213,9 @@ class App extends Component {
                          this.renderMessages()
                     }
                     </ul>
+                    {
+                        this.renderChanceDele()
+                    }
                 </div>
             </div>
             <footer>

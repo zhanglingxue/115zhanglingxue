@@ -6,12 +6,22 @@ export default class MessageItem extends Component{
     constructor(props){
         super(props);
     }
+
+    renderChecxBox = () =>{
+        const {mull} = this.props;
+        return mull ? (
+            <div className="checkBox">
+                <input type="checkbox"  /> 
+            </div>
+        ) : null
+    }
+    
     
     render(){
-        const {item} = this.props;
+        const {item,mull} = this.props;
         return(
             <li className="eve_content"  >
-                
+                {this.renderChecxBox()}
                 <img src={item.img} />
                 <div className="textContent">
                     <p className="chatName">{item.title}</p>

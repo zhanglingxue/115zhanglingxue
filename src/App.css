@@ -87,6 +87,20 @@ ul li{
   min-height: 50px;
   border-bottom:1px solid #e0e0e0;
 }
+.checkBox{
+  width: 15px;
+  float: left;
+  margin-top:10px;
+  margin-left:3px;
+}
+.chanceDelete{
+  margin-top: 20px;
+}
+.chanceDelete button{
+  width: 20%;
+  height: 20px;
+  margin-left: 20px;
+}
 .eve_content img{
   width: 70px;
   height:40px;
@@ -138,6 +152,13 @@ ul li{
   height:20px;
   float: right;
   margin-right: 5px;
+  width:70px;
+  background-color:#cdd5e0; 
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-radius:2px;
 }
 footer{
   width: 100%;
