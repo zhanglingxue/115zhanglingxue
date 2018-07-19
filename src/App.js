@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import MessageItemView from './MessageItem.js'
-import ButtonView from './Button.js'
-import DialogView from './Dialog.js'
+import MessageItemView from './components/MessageItem.js'
+import ButtonView from './components/Button.js'
+import DialogView from './components/Dialog.js'
+import InputView from './components/Input.js'
+import CheckView from "./components/CheckBox.js"
 import logo from './logo.svg';
 import './App.css';
 
@@ -18,14 +20,14 @@ class App extends Component {
                     title:'打火机与公主裙',
                     description:'[小程序]到保定的火车票太难抢啦，需要你助我一臂之力',
                     time:'下午2:31',   
-                    onClick:this.onItemClick,             
+                              
                 },
                 {
                     img:require('./img/1413.jpg'),
                     title:'小年糕前端集训营',
                     description:'[链接]',
                     time:'早上9:06',   
-                    onClick:this.onItemClick,             
+                               
                 },
                 {
                     img:require('./img/people.jpg'),
@@ -48,21 +50,34 @@ class App extends Component {
                     img:require('./img/me.png'),
                 },
             ],
+            key:0,
             showDialog:false,
+            showInput:false,
+            title:null,
+            desc:null,
+            time:null,
+            checkbox:false,
         }
     }
 
     //点击事件显示浮动层与否
-    onItemClick = () => {
+    onItemClick = (key) => {
         this.setState({
             showDialog:!this.state.showDialog,
         })
+        this.state.key = key;
     }
 
+    //点击加号出现输入弹框
+    onInputClick = () =>{
+        this.setState({
+            showInput:!this.state.showInput,
+        })
+    }
     //循环显示页面聊天框
     renderMessages = () => {
         return this.state.messages.map((item,index)=>{
-            return <MessageItemView key={index} item={item} show1={this.onItemClick} />
+            return <MessageItemView key={index} item={item}  show1={this.onItemClick.bind(this,index)}/>
         })
     }
 
@@ -72,27 +87,89 @@ class App extends Component {
             return <ButtonView key={index} item={item} />
         })
     }
-    
+
+    /*  --获取输入框值开始--  */
+    handAddDiv = (event) =>{
+        this.setState({
+            title:event.target.value
+        })
+    }
+    handAddDiv1 = (event) =>{
+        this.setState({
+            desc:event.target.value
+        })
+    }
+    handAddDiv2 = (event) =>{
+        this.setState({
+            time:event.target.value
+        })
+    }
+    /* --获取输入框值结束-- */
+
     //显示浮动层内容
     renderDialog = () =>{
         if(this.state.showDialog)
             return <DialogView  show2={this.handClickDiv}/>
     }
+
+    //获取输入框三个值
+    renderInput = () =>{
+        if(this.state.showInput)
+            return (
+            <InputView  show3={this.handAddDiv.bind(this)} show4={this.handAddDiv1.bind(this)} show5={this.handAddDiv2.bind(this)} submit={this.renderDiv}/>
+        )
+    }
     
-    //打印浮动层
-    handClickDiv = (event) => {
-        console.log(event.target.innerHTML);
+    //增加聊天对话到顶部
+    renderDiv = () =>{
+        const newMessage = this.state.messages.slice()
+        newMessage.unshift({
+            img:require('./img/1414.jpg'),
+            title:this.state.title,
+            description:this.state.desc,
+            time:this.state.time
+        })
+        this.setState({
+            messages:newMessage,
+            showInput:!this.state.showInput,
+
+         })
     }
 
+    //打印浮动层   //此处使用switch有问题
+    handClickDiv = (event) => {
+        const copeMessage = this.state.messages.slice()
+        if(event.target.innerHTML === "置顶"){
+            const temp = copeMessage[this.state.key];
+            delete copeMessage[this.state.key]
+            copeMessage.unshift(temp)
+            this.setState({
+                messages:copeMessage,
+            });
+        }else if(event.target.innerHTML === "删除"){
+            delete copeMessage[this.state.key]
+            this.setState({
+                messages:copeMessage,
+            });
+        }else if(event.target.innerHTML === "多选删除"){
+            
+        }
+    }
+
+
+    
   render() {
     return (
         <div >
            <div className="header">
                 <h3>微信</h3>
                 <div className="list">
-                    <img src={addImg} />
+                    <img src={addImg} onClick={this.onInputClick}/>
                     {
                         this.renderDialog()
+                    }
+                    {
+                        this.renderInput()
                     }
                 </div>
                 <img src={searchImg} />
