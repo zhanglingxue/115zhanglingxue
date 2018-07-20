@@ -53,9 +53,6 @@ class App extends Component {
             key:0,
             showDialog:false,
             showInput:false,
-            title:null,
-            desc:null,
-            time:null,
             checkbox:false,
             multipleChoice: false,
             deleArr:[],
@@ -117,24 +114,6 @@ class App extends Component {
         })
     }
 
-    /*  --获取输入框值开始--  */
-    handAddDiv = (event) =>{
-        this.setState({
-            title:event.target.value
-        })
-    }
-    handAddDiv1 = (event) =>{
-        this.setState({
-            desc:event.target.value
-        })
-    }
-    handAddDiv2 = (event) =>{
-        this.setState({
-            time:event.target.value
-        })
-    }
-    /* --获取输入框值结束-- */
-
     //显示浮动层内容
     renderDialog = () =>{
         if(this.state.showDialog)
@@ -145,13 +124,14 @@ class App extends Component {
     renderInput = () =>{
         if(this.state.showInput)
             return (
-            <InputView  show3={this.handAddDiv.bind(this)} show4={this.handAddDiv1.bind(this)} show5={this.handAddDiv2.bind(this)} submit={this.renderDiv} />
+            <InputView submit={this.renderDiv} />
         )
     }
     
     //增加聊天对话到顶部
-    renderDiv = () =>{
-        if(!this.state.title || !this.state.desc ||!this.state.time){
+    renderDiv = (item) =>{
+        console.log(item)
+        if(!item.title || !item.description ||!item.time){
             this.setState({
                 showInput:!this.state.showInput,
              })
@@ -159,9 +139,7 @@ class App extends Component {
             const newMessage = this.state.messages.slice()
             newMessage.unshift({
                 img:require('./img/1414.jpg'),
-                title:this.state.title,
-                description:this.state.desc,
-                time:this.state.time
+                ...item
             })
             this.setState({
                 messages:newMessage,

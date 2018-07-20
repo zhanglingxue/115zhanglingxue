@@ -18,7 +18,7 @@ export default class MessageItem extends Component{
     
     
     render(){
-        const {item,mull} = this.props;
+        const {item} = this.props;
         return(
             <li className="eve_content"  >
                 {this.renderCheckBox()}
