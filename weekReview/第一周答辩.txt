@@ -21,10 +21,11 @@ state放要改变的数据。
 
 3.向事件处理程序传递参数
 箭头函数中事件对象必须显式传递，bind方式中事件对象及更多的参数会被隐式传递。
+//下方实例中，参数e作为事件对象作为第二个参数传递。
 eg:<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
-//上述实例中，参数e作为事件对象作为第二个参数传递。
 <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 //通过bind方式向监听函数传参，在类组件中定义的监听函数的事件e要排在所传参数的后面。
+eg:deleteRow = (key,e) =>{}
 
 4.render:
 必选的方法，创建虚拟DOM，规则：
