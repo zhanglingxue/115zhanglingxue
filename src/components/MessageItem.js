@@ -16,7 +16,6 @@ export default class MessageItem extends Component{
         ) : null
     }
     
-    
     render(){
         const {item} = this.props;
         return(

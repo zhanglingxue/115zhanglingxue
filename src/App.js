@@ -3,7 +3,6 @@ import MessageItemView from './components/MessageItem.js'
 import ButtonView from './components/Button.js'
 import DialogView from './components/Dialog.js'
 import InputView from './components/Input.js'
-import CheckView from "./components/CheckBox.js"
 import logo from './logo.svg';
 import './App.css';
 
@@ -81,7 +80,7 @@ class App extends Component {
         })
     }
 
-    //批量删除
+    //批量删除  //考虑删除时倒序删除，正向删除会影响删除一个后的下脚标数值
     handDeleteDiv = (key,event) =>{
         this.setState({
             checkbox:!this.state.checkbox
@@ -89,12 +88,10 @@ class App extends Component {
         if(event.target.checked){
             this.state.deleArr.push(key);
         }else if(!event.target.checked ){
-            for(let i in this.state.deleArr ){
-                if(this.state.deleArr[i] === key){
-                    delete this.state.deleArr[i]
-                }
-            }
+            if(this.state.deleArr.include(key))
+                delete this.state.deleArr[key]
         }
+        
     }
 
     moreDelete = () =>{
@@ -171,7 +168,6 @@ class App extends Component {
                 multipleChoice:true,
                 showDialog:!this.state.showDialog,
             })
-
         }
     }
 
