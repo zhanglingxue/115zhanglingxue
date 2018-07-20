@@ -84,30 +84,7 @@ class App extends Component {
         })
     }
 
-    //底部导航栏按钮
-    renderImages = () => {
-        return this.state.imgs.map((item,index)=>{
-            return <ButtonView key={index} item={item} />
-        })
-    }
-
-    /*  --获取输入框值开始--  */
-    handAddDiv = (event) =>{
-        this.setState({
-            title:event.target.value
-        })
-    }
-    handAddDiv1 = (event) =>{
-        this.setState({
-            desc:event.target.value
-        })
-    }
-    handAddDiv2 = (event) =>{
-        this.setState({
-            time:event.target.value
-        })
-    }
-
+    //批量删除
     handDeleteDiv = (key,event) =>{
         this.setState({
             checkbox:!this.state.checkbox
@@ -130,6 +107,30 @@ class App extends Component {
         this.setState({
             messages:this.state.messages,
             multipleChoice:false
+        })
+    }
+
+    //底部导航栏按钮
+    renderImages = () => {
+        return this.state.imgs.map((item,index)=>{
+            return <ButtonView key={index} item={item} />
+        })
+    }
+
+    /*  --获取输入框值开始--  */
+    handAddDiv = (event) =>{
+        this.setState({
+            title:event.target.value
+        })
+    }
+    handAddDiv1 = (event) =>{
+        this.setState({
+            desc:event.target.value
+        })
+    }
+    handAddDiv2 = (event) =>{
+        this.setState({
+            time:event.target.value
         })
     }
     /* --获取输入框值结束-- */
@@ -196,6 +197,7 @@ class App extends Component {
         }
     }
 
+    //多选删除下button
     renderChanceDele = () =>{
         if(this.state.multipleChoice)
             return (
@@ -206,7 +208,7 @@ class App extends Component {
         )
     }
    
-
+    //更多选项里删除事件
     overDelete = () =>{
         this.setState({
             multipleChoice:false,
