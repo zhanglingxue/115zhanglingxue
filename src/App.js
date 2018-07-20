@@ -127,7 +127,6 @@ class App extends Component {
     
     //增加聊天对话到顶部
     renderDiv = (item) =>{
-        console.log(item)
         if(!item.title || !item.description ||!item.time){
             this.setState({
                 showInput:!this.state.showInput,
@@ -145,7 +144,7 @@ class App extends Component {
         }  
     }
 
-    //打印浮动层   //此处使用switch有问题
+    //打印聊天层   //此处使用switch有问题
     handClickDiv = (event) => {
         const copeMessage = this.state.messages.slice()
         if(event.target.innerHTML === "置顶"){
