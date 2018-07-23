@@ -3,7 +3,7 @@ import './todo.css'
 
 const searchImg = require('../../img/red_add.png')
 
-export default class Todo extends Component {
+export default class AddTodo extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,9 +15,8 @@ export default class Todo extends Component {
             overreturn: !this.state.overreturn,
         })
     }
-
     handerAdd = () => {
-        const { submit } = this.props;
+        const { addMess } = this.props;
         if (!this.refs.myInput.value || !this.refs.myInput1.value || !this.refs.myInput2.value) {
             this.setState({
                 overreturn: !this.state.overreturn,
@@ -26,7 +25,7 @@ export default class Todo extends Component {
             this.setState({
                 overreturn: !this.state.overreturn,
             })
-            submit && submit({
+            addMess({
                 img: require('../../img/people.jpg'),
                 title: this.refs.myInput.value,
                 description: this.refs.myInput1.value,
@@ -34,7 +33,6 @@ export default class Todo extends Component {
             })
         }
     }
-
     renderList = () => {
         return this.state.overreturn ? (
             <div>

@@ -3,7 +3,7 @@ import './todo.css';
 
 const icon = require('../../img/chat.png')
 
-export default class Todo extends Component {
+export default class Filter extends Component {
     constructor() {
         super();
         this.state = {
@@ -19,10 +19,10 @@ export default class Todo extends Component {
                 },
                 {
                     img: require('../../img/me.png'),
-                }],
+                }
+            ],
         }
     }
-
     renderImgs = () => {
         return this.state.imgs.map((item, index) => {
             return (
@@ -32,8 +32,6 @@ export default class Todo extends Component {
             )
         })
     }
-
-
     render() {
         return (
             <footer>
