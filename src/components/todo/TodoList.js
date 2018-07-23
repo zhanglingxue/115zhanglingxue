@@ -1,59 +1,68 @@
 import React, { Component } from 'react';
-import AddTode from './AddTode';
 import './todo.css';
 
 const closeImg = require('../../img/close.png')
 
 export default class TodoList extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             multipleChoice: false,
-            key:null,
+            key: null,
+            check: false,
+            deleteArr: []
         }
     }
     renderDialog = (idx) => {
-        const { items } = this.props;
         this.setState({
             multipleChoice: !this.state.multipleChoice,
             key: idx,
         })
     }
     closeDiv = () => {
-        const { items } = this.props;
         this.setState({
-            multipleChoice: !this.state.multipleChoice,
+            multipleChoice: false,
         })
     }
     chanceDiv = (event) => {
-        const { items,changeMess } = this.props;
-        const copeMessage = items.messages.slice()
+        const { itemMessage, changeMess } = this.props;
+        const copeMessage = itemMessage.slice()
         if (event.target.innerHTML === "置顶") {
-            const temp = copeMessage[this.state.key];
-            delete copeMessage[this.state.key]
-            copeMessage.unshift(temp)
+            if(this.state.key === 0){
+                this.setState({
+                    multipleChoice: false,
+                    key:null,
+                })
+            }else{
+                const temp = copeMessage[this.state.key];
+                delete copeMessage[this.state.key]
+                copeMessage.unshift(temp)
+                changeMess({
+                    cope:copeMessage
+                })
+                this.setState({
+                    multipleChoice: false,
+                    key:null,
+                })
+            }
+        } else if(event.target.innerHTML === "删除") {
+            // delete copeMessage[this.state.key];
+            copeMessage.splice(this.state.key,1)
             this.setState({
-                multipleChoice: !this.state.multipleChoice,
+                multipleChoice: false,
+                key:null,
             })
             changeMess({
-                cope:copeMessage,
-            })
-        } else if (event.target.innerHTML === "删除") {
-            delete copeMessage[this.state.key]
-            this.setState({
-                multipleChoice: !this.state.multipleChoice,
-            })
-            changeMess({
-                cope:copeMessage,
+                cope:copeMessage
             })
         } else if (event.target.innerHTML === "多选删除") {
             this.setState({
-                check:!items.check,
-                multipleChoice: !this.state.multipleChoice,
+                check: true,
+                multipleChoice: false,
             })
         }
     }
-    renderChance = (idx, event) => {
+    renderChance = () => {
         return this.state.multipleChoice ? (
             <div className="app-dialog">
                 <img src={closeImg} alt='' onClick={this.closeDiv} />
@@ -65,21 +74,56 @@ export default class TodoList extends Component {
             </div>
         ) : null;
     }
-    checkBox = () =>{
-        const { items } = this.props;
-        if(items.check)
+    checkBox = (idx) => {
+        if (this.state.check)
             return (
                 <div className="checkBox">
-                    <input type="checkbox"  />
+                    <input type="checkbox" onChange={this.handleMoreDelete.bind(this, idx)} />
                 </div>
-            ) 
+            )
+    }
+    handleMoreDelete = (idx, event) => {
+        if (event.target.checked) {
+            this.state.deleteArr.push(idx)
+        } else{
+            for(let i in this.state.deleteArr){
+                if(this.state.deleteArr[i] === idx)
+                this.state.deleteArr.splice(i,1)
+            }
+        }
+        this.setState({
+            deleteArr:this.state.deleteArr
+        })
+    }
+    deleteMore = () => {
+        if (this.state.check)
+            return (
+                <div className="chanceDelete">
+                    <button onClick={this.moreDelete}>批量删除</button>
+                    <button onClick={this.overDelete}>取消</button>
+                </div>
+            )
+    }
+    moreDelete = () => {
+        const {Arrays} = this.props;
+        this.setState({
+            check: false
+        })
+        Arrays({
+            deleteArray:this.state.deleteArr
+        })
+    }
+    overDelete = () => {
+        this.setState({
+            check: false
+        })
     }
     renderMessages = () => {
-        const { items } = this.props;
-        return items.messages.map((item, index) => {
+        const { itemMessage } = this.props;
+        return itemMessage.map((item, index) => {
             return (
-                <li className="eve_content">
-                    {this.checkBox()}
+                <li className="eve_content" key=''>
+                    {this.checkBox(index)}
                     <img src={item.img} alt='' />
                     <div className="textContent">
                         <p className="chatName">{item.title}</p>
@@ -103,6 +147,9 @@ export default class TodoList extends Component {
                             this.renderMessages()
                         }
                     </ul>
+                    {
+                        this.deleteMore()
+                    }
                 </div>
             </div>
         )

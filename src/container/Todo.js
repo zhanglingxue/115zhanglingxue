@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddTodo from '../components/todo/AddTode';
+import AddTodo from '../components/todo/AddTodo';
 import TodoList from '../components/todo/TodoList';
 import Filter from '../components/todo/Filter.js';
 import '../components/todo/todo.css';
@@ -28,14 +28,13 @@ export default class Todo extends Component {
                     time: '昨天12:06',
                 }
             ],
-            showDialog: false,
-            check: false,
-            deleteArr: [],
         }
     }
 
-    changeMessage = (item) => {
-        this.state.messages = item.cope;
+    changeMessage = (mess) => {
+        this.setState({
+            messages:mess.cope,
+        })
     }
     addDiv = (item) => {
         const copeMessage = this.state.messages.slice();
@@ -43,14 +42,25 @@ export default class Todo extends Component {
             ...item,
         })
         this.setState({
-            messages:copeMessage,
+            messages: copeMessage,
+        })
+    }
+    deleteMore = (items) =>{
+        const newArr = items.deleteArray;
+        const copeMessage1 = this.state.messages.slice();
+        newArr.map((item,index) => {
+           delete copeMessage1[item];
+        })
+        this.setState({
+            messages:copeMessage1,
+            deleteArray:[]
         })
     }
     render() {
         return (
             <div className="todo-ctn">
-                <AddTodo items={this.state} addMess={this.addDiv} />
-                <TodoList items={this.state} changeMess={this.changeMessage} />
+                <AddTodo  addMess={this.addDiv} />
+                <TodoList itemMessage={this.state.messages} changeMess={this.changeMessage} Arrays={this.deleteMore}/>
                 <Filter />
             </div>
         )

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './todo.css';
 
-const icon = require('../../img/chat.png')
-
 export default class Filter extends Component {
     constructor() {
         super();
