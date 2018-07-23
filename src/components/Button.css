@@ -1,0 +1,12 @@
+.footer_content{
+  width: 25%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  float: left;
+}
+.footer_img{
+  width:20px;
+  height:20px;
+  background-size:100% 100%;
+}

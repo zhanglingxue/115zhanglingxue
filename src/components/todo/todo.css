@@ -1,0 +1,10 @@
+.todo_ctn{
+    height: 20px;
+}
+
+.todo_ctn img{
+    width: 20px;
+    height: 20px;
+    float: right;
+    
+}

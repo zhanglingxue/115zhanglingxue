@@ -1,17 +1,14 @@
 import React,{Component} from "react";
-import '../App.css';
+import './Button.css'
 
 
 export default class Images extends Component{
-    constructor(props){
-        super(props);
-    }
     
     render(){
         const {item} = this.props;
         return(
             <li className="footer_content" >
-                <img src={item.img} className="footer_img" />
+                <img src={item.img} className="footer_img" alt=''/>
             </li> 
         )
     }
