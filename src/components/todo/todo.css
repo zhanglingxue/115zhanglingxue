@@ -1,10 +1,218 @@
-.todo_ctn{
-    height: 20px;
-}
-
-.todo_ctn img{
+*{
+    margin: 0;
+    padding: 0;
+  }
+  body,html{
+    width: 100%;
+  }
+  .header{
+    width:100%;
+    height:50px;
+    background: black;
+    line-height: 50px;
+    position: fixed;
+    top:0;
+    border:1px solid black;
+  }
+  .container{
+    width:100%;
+    height:600px;
+    background: #FCFCFC;
+    border:1px solid #e0e0e0;
+  }
+  .list{
+    width:40px;
+    height: 50px;
+    float:right;
+    margin-left: 10px;
+  }
+  .list:hover>ul{
+    display: block;
+  }
+  .header h3{
+    width: 20%;
+    float: left;
+    color:#e0e0e0;
+    margin-left: 5px;
+  }
+  .header img{
     width: 20px;
-    height: 20px;
+    height:20px;
+    margin-top: 15px;
+    background-size:100% 100%;
     float: right;
-    
+    margin-right:10px;
+  }
+  .content{
+    margin-top:50px;
+    width: 100%;
+    height:500px;
+    overflow: auto;
+  }
+  ul li{
+    list-style: none;
+  }
+  .checkBox{
+    width: 15px;
+    float: left;
+    margin-top:10px;
+    margin-left:3px;
+  }
+  .chanceDelete{
+    margin-top: 20px;
+  }
+  .chanceDelete button{
+    width: 20%;
+    height: 20px;
+    margin-left: 20px;
+  }
+  footer{
+    width: 100%;
+    height:50px;
+    min-height:50px;
+    position: fixed;
+    border-top:1px solid #e0e0e0;
+    bottom: 0;
+    background: #5C258D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4389A2, #5C258D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4389A2, #5C258D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  .footer_content{
+    width: 25%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+  }
+  .footer_img{
+    width:20px;
+    height:20px;
+    background-size:100% 100%;
+  }
+  .eve_content{
+    width: 100%;
+    height:50px;
+    min-height: 50px;
+    border-bottom:1px solid #e0e0e0;
+  }
+  .eve_content img{
+    width: 70px;
+    height:40px;
+    padding: 5px;
+    float: left;
+    background-size:100% 100%;
+  }
+  .textContent{
+    /* width: 226px; */
+    max-width:226px;
+    height:40px;
+    padding: 5px;
+    float: left;
+    overflow: hidden;
+    /* flex-direction: row-reverse;*/
+  }
+  .chatName{
+    font-size:0.95em;
+    max-width:128px;
+    height:20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .chatCont{
+    max-width:128px;
+    height:19px;
+    font-size: 0.6em;
+    color:gray;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .timeRight{
+    float: right;
+    height: 100%;
+    width: 65px;
+  }
+  .chatTime{
+    /* width: 75px; */
+    height:17px;
+    padding-top:5px;
+    font-size:0.7em;
+    color: gray;
+    float: right;
+    margin-right: 5px;
+  }
+  .button{
+    height:20px;
+    float: right;
+    margin-right: 5px;
+    width:44px;
+    background-color:#cdd5e0; 
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-radius:2px;
+  }
+
+.app-dialog{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  z-index: 10;
+  background: rgba(0,0,0,0.5) none repeat scroll !important;
+}
+.app-dialog img{
+  width: 40px;
+  height: 40px;
+  float:right;
+}
+.content_1{
+  position: absolute;
+  top:100px;
+  left:35%;
+  opacity: 1;
+  text-align: center;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.item{
+  border-bottom:1px solid #e0e0e0;
+}
+.item:hover{
+  width: 100%;
+  background-color:#e0e0e0;
+}
+.todo_ctn img{
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+.content_2{
+  position: absolute;
+  top:50px;
+  right:0;
+  z-index: 9999;
+  text-align: center;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.item{
+  border-bottom:1px solid #e0e0e0;
+}
+.item:hover{
+  width: 100%;
+  background-color:#e0e0e0;
+}
+.app-input{
+  outline: none;
+  width:150px;
+  height:25px;
+  border: 0;
 }

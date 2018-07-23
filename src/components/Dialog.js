@@ -6,8 +6,7 @@ const closeImg = require('../img/close.png')
 export default class Dialog extends Component {
 
     chanceDiv = (event) => {
-        const { mess } = this.props;
-        const { upDateMessages } = this.props;
+        const { mess,upDateMessages } = this.props;
         const copeMessage = mess.messages.slice()
         if (event.target.innerHTML === "置顶") {
             const temp = copeMessage[mess.key];

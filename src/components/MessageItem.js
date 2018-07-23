@@ -3,35 +3,37 @@ import './MessageItem.css';
 
 
 export default class MessageItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state ={
+            appear:false,
+        }
+    }
 
     renderCheckBox = () => {
-        const { mull } = this.props;
-        const { index } = this.props;
+        const { mull, index } = this.props;
         return mull.multipleChoice ? (
             <div className="checkBox">
                 <input type="checkbox" onChange={this.handleMoreDelete.bind(this, index)} />
             </div>
         ) : null
     }
-
     handleMoreDelete = (index, event) => {
-        const { mull } = this.props;
-        const { dele } = this.props;
+        const { mull, dele } = this.props;
         if (event.target.checked) {
             mull.deleteArr.push(index);
         } else {
             delete mull.deleteArr[index];
         }
-        dele({deleteArr: mull.deleteArr});
+        dele({ deleteArr: mull.deleteArr });
     }
-
 
     render() {
         const { item } = this.props;
         return (
             <li className="eve_content"  >
                 {this.renderCheckBox()}
-                <img src={item.img} alt=''/>
+                <img src={item.img} alt='' />
                 <div className="textContent">
                     <p className="chatName">{item.title}</p>
                     <p className="chatCont">{item.description}</p>
