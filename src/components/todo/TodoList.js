@@ -28,32 +28,31 @@ export default class TodoList extends Component {
         const { itemMessage, changeMess } = this.props;
         const copeMessage = itemMessage.slice()
         if (event.target.innerHTML === "置顶") {
-            if(this.state.key === 0){
+            if (this.state.key === 0) {
                 this.setState({
                     multipleChoice: false,
-                    key:null,
+                    key: null,
                 })
-            }else{
+            } else {
                 const temp = copeMessage[this.state.key];
                 delete copeMessage[this.state.key]
                 copeMessage.unshift(temp)
                 changeMess({
-                    cope:copeMessage
+                    cope: copeMessage
                 })
                 this.setState({
                     multipleChoice: false,
-                    key:null,
+                    key: null,
                 })
             }
-        } else if(event.target.innerHTML === "删除") {
-            // delete copeMessage[this.state.key];
-            copeMessage.splice(this.state.key,1)
+        } else if (event.target.innerHTML === "删除") {
+            copeMessage.splice(this.state.key, 1)
             this.setState({
                 multipleChoice: false,
-                key:null,
+                key: null,
             })
             changeMess({
-                cope:copeMessage
+                cope: copeMessage
             })
         } else if (event.target.innerHTML === "多选删除") {
             this.setState({
@@ -85,14 +84,14 @@ export default class TodoList extends Component {
     handleMoreDelete = (idx, event) => {
         if (event.target.checked) {
             this.state.deleteArr.push(idx)
-        } else{
-            for(let i in this.state.deleteArr){
-                if(this.state.deleteArr[i] === idx)
-                this.state.deleteArr.splice(i,1)
+        } else {
+            for (let i in this.state.deleteArr) {
+                if (this.state.deleteArr[i] === idx)
+                    this.state.deleteArr.splice(i, 1)
             }
         }
         this.setState({
-            deleteArr:this.state.deleteArr
+            deleteArr: this.state.deleteArr
         })
     }
     deleteMore = () => {
@@ -105,12 +104,12 @@ export default class TodoList extends Component {
             )
     }
     moreDelete = () => {
-        const {Arrays} = this.props;
+        const { Arrays } = this.props;
         this.setState({
             check: false
         })
         Arrays({
-            deleteArray:this.state.deleteArr
+            deleteArray: this.state.deleteArr
         })
     }
     overDelete = () => {
@@ -122,7 +121,7 @@ export default class TodoList extends Component {
         const { itemMessage } = this.props;
         return itemMessage.map((item, index) => {
             return (
-                <li className="eve_content" key=''>
+                <li className="eve_content" key={index}>
                     {this.checkBox(index)}
                     <img src={item.img} alt='' />
                     <div className="textContent">

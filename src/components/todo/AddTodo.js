@@ -51,7 +51,7 @@ export default class AddTodo extends Component {
                 <div className="header">
                     <h3>微信</h3>
                     <div className="list">
-                        <img src={searchImg} onClick={this.renderClick} alt=''/>
+                        <img src={searchImg} onClick={this.renderClick} alt='' />
                     </div>
                 </div>
                 {

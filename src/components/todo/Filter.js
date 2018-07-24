@@ -24,7 +24,7 @@ export default class Filter extends Component {
     renderImgs = () => {
         return this.state.imgs.map((item, index) => {
             return (
-                <li className="footer_content" >
+                <li className="footer_content" key={index}>
                     <img src={item.img} className="footer_img" alt='' />
                 </li>
             )

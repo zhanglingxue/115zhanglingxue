@@ -30,10 +30,9 @@ export default class Todo extends Component {
             ],
         }
     }
-
     changeMessage = (mess) => {
         this.setState({
-            messages:mess.cope,
+            messages: mess.cope,
         })
     }
     addDiv = (item) => {
@@ -45,22 +44,26 @@ export default class Todo extends Component {
             messages: copeMessage,
         })
     }
-    deleteMore = (items) =>{
+    deleteMore = (items) => {
+        const x =(a,b) =>{
+            return b>a;
+        }
         const newArr = items.deleteArray;
         const copeMessage1 = this.state.messages.slice();
-        newArr.map((item,index) => {
-           delete copeMessage1[item];
+        newArr.sort(x);
+        newArr.map((item, index) => {
+            return copeMessage1.splice(item,1);
         })
         this.setState({
-            messages:copeMessage1,
-            deleteArray:[]
+            messages: copeMessage1,
+            deleteArray: []
         })
     }
     render() {
         return (
             <div className="todo-ctn">
-                <AddTodo  addMess={this.addDiv} />
-                <TodoList itemMessage={this.state.messages} changeMess={this.changeMessage} Arrays={this.deleteMore}/>
+                <AddTodo addMess={this.addDiv} />
+                <TodoList itemMessage={this.state.messages} changeMess={this.changeMessage} Arrays={this.deleteMore} />
                 <Filter />
             </div>
         )
