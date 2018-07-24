@@ -35,7 +35,7 @@ export default class TodoList extends Component {
                 })
             } else {
                 const temp = copeMessage[this.state.key];
-                delete copeMessage[this.state.key]
+                copeMessage.splice(this.state.key,1);
                 copeMessage.unshift(temp)
                 changeMess({
                     cope: copeMessage
@@ -133,6 +133,7 @@ export default class TodoList extends Component {
                         <button className="button" onClick={this.renderDialog.bind(this, index)}>更多</button>
                     </div>
                     {this.renderChance()}
+                    
                 </li>
             )
         })

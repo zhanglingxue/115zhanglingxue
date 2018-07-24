@@ -53,9 +53,9 @@
     list-style: none;
   }
   .checkBox{
-    width: 15px;
+    width: 12px;
     float: left;
-    margin-top:10px;
+    line-height: 50px;
     margin-left:3px;
   }
   .chanceDelete{
@@ -82,7 +82,7 @@
     width: 25%;
     height: 50px;
     text-align: center;
-    line-height: 50px;
+    /* line-height: 50px; */
     float: left;
   }
   .footer_img{

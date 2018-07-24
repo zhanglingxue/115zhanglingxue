@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './todo.css'
 
 const searchImg = require('../../img/red_add.png')
+const KEY_CODE = 13;
 
 export default class AddTodo extends Component {
     constructor(props) {
@@ -33,14 +34,18 @@ export default class AddTodo extends Component {
             })
         }
     }
+    keySubmit = e =>{
+        if(e.keyCode === KEY_CODE)
+            this.handerAdd();
+    }
     renderList = () => {
         return this.state.overreturn ? (
             <div>
                 <ul className="content_2" >
                     <li className="item">名称:<input className="app-input" ref="myInput"></input></li>
                     <li className="item">内容:<input className="app-input" ref="myInput1"></input></li>
-                    <li className="item">时间:<input className="app-input" ref="myInput2"></input></li>
-                    <li className="item" onClick={this.handerAdd}>添加</li>
+                    <li className="item">时间:<input className="app-input" ref="myInput2" onKeyDown={this.keySubmit}></input></li>
+                    <li className="item" onClick={this.handerAdd} >添加</li>
                 </ul>
             </div>
         ) : null;

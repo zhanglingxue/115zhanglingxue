@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import TodoView from './container/Todo.js'
+import TabView from './container/Tab'
+// import TodoView from './container/Todo.js'
 import './components/todo/todo.css';
 
 class App extends Component {
 
-    render(){
+    render() {
         return (
-            <TodoView />
+            <TabView />
         )
     }
 }
