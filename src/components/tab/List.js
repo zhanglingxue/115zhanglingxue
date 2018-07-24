@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './tab.css';
 
 export default class List extends Component {
+
+    
+
     changeButton = (id, index, event) => {
         const { items, radioIndex } = this.props;
         const copeIndex = items.messages[id].idx.slice();
@@ -29,16 +32,22 @@ export default class List extends Component {
     renderList = (id) => {
         const { items } = this.props;
         return items.messages[id].idx.map((item, index) => {
+            let colorClass = '';
+            switch (item.index) {
+                case '1':colorClass= 'red';break;
+                case '2':colorClass= 'yellow';break;
+                case '3':colorClass= 'blue';break;
+                case '4':colorClass= 'pink';break;
+                default: break;
+            }
             if(index === 0){
                 return (
-                    <span onClick={this.changeButton.bind(this, id, item.index)} key={index} className='chance-box active'>
-                        {item.index}
+                    <span onClick={this.changeButton.bind(this, id, item.index)} key={index} className={'chance-box active '+colorClass}>
                     </span>
                 )
             }else {
                 return (
-                    <span onClick={this.changeButton.bind(this, id, item.index)} key={index} className='chance-box'>
-                        {item.index}
+                    <span onClick={this.changeButton.bind(this, id, item.index)} key={index} className={'chance-box '+colorClass}>
                     </span>
                 )
             }

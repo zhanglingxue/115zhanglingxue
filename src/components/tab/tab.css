@@ -36,12 +36,33 @@ input{
     width: 15px;
     height: 15px;
     border-radius: 15px;
-    border:1px solid gray;
-    background:black;
-    /* background-image: url('../../img/okk.png');
-    background-size: 100% 100%; */
+    border:1px solid #e0e0e0;
 }
 .active{
     background-image: url('../../img/okk.png');
     background-size: 100% 100%;
+}
+.red{
+    background-color: #dd0a35;
+}
+.yellow{
+    background-color: #f8c43a;
+}
+.blue{
+    background-color: #014955;
+}
+.pink{
+    background-color: #eb7878;
+}
+.red1{
+    color:#dd0a35;
+}
+.yellow1{
+    color:#f8c43a;
+}
+.blue1{
+    color:#014955;
+}
+.pink1{
+    color:#eb7878;
 }
