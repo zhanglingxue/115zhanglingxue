@@ -8,16 +8,14 @@ export default class TabButton extends Component {
         return items.button.map((item, index) => {
             for (let i in items.messages) {
                 if (items.messages[i].name === item.name) {
-                    let fontColor ='';
-                    console.log(items.messages[i].idx[0])
+                    let fontColor = '';
                     switch (items.messages[i].idx[0].index) {
-                        case '1':fontColor= 'red1';break;
-                        case '2':fontColor= 'yellow1';break;
-                        case '3':fontColor= 'blue1';break;
-                        case '4':fontColor= 'pink1';break;
+                        case '1': fontColor = 'red1'; break;
+                        case '2': fontColor = 'yellow1'; break;
+                        case '3': fontColor = 'blue1'; break;
+                        case '4': fontColor = 'pink1'; break;
                         default: break;
                     }
-                    console.log(fontColor)
                     return (
                         <li className="footer_content" key={index}>
                             <div>

@@ -8,31 +8,24 @@ import '../components/tab/tab.css';
 export default class Tab extends Component {
     constructor() {
         super();
+        this.colorArr = [{ index: '1', }, { index: '2', }, { index: '3', }, { index: '4', }]
         this.state = {
             messages: [
                 {
                     name: '微信',
-                    idx: [
-                        { index: '1', }, { index: '2', }, { index: '3', }, { index: '4', }
-                    ]
+                    idx: this.colorArr
                 },
                 {
                     name: '通讯录',
-                    idx: [
-                        { index: '1', }, { index: '2', }, { index: '3', }, { index: '4', }
-                    ]
+                    idx: this.colorArr
                 },
                 {
                     name: '发现',
-                    idx: [
-                        { index: '1', }, { index: '2', }, { index: '3', }, { index: '4', }
-                    ]
+                    idx: this.colorArr
                 },
                 {
                     name: '我',
-                    idx: [
-                        { index: '1', }, { index: '2', }, { index: '3', }, { index: '4', }
-                    ]
+                    idx: this.colorArr
                 }
             ],
             button: [
@@ -57,13 +50,11 @@ export default class Tab extends Component {
             inn: null,
         }
     }
-
     radioIndex = (item) => {
         this.setState({
-            isActive: item.isActive,
-            messages: item.copeMessages,
+            isActive: item.item.isActive,
+            messages: item.item.copeMessages,
         })
-        this.state.messages[item.id].idx = item.copeIndex;
     }
 
     render() {
