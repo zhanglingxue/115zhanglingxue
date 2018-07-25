@@ -4,7 +4,6 @@ import './todo.css'
 const closeImg = require('../../img/close.png')
 
 export default class Dialog extends Component {
-
     chanceDiv = (event) => {
         const { itemMessage, changeMess } = this.props;
         const copeMessage = itemMessage.slice()

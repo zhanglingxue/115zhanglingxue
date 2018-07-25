@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addMess } from '../../actions'
 import './todo.css'
 
 const searchImg = require('../../img/red_add.png')
@@ -17,7 +18,7 @@ export default class AddTodo extends Component {
         })
     }
     handerAdd = () => {
-        const { addMess } = this.props;
+        const { dispatch } = this.props;
         if (!this.refs.myInput.value || !this.refs.myInput1.value || !this.refs.myInput2.value) {
             this.setState({
                 overreturn: !this.state.overreturn,
@@ -26,29 +27,19 @@ export default class AddTodo extends Component {
             this.setState({
                 overreturn: !this.state.overreturn,
             })
-            addMess({
+            const newObject = {
                 img: require('../../img/people.jpg'),
                 title: this.refs.myInput.value,
                 description: this.refs.myInput1.value,
-                time: this.refs.myInput2.value
-            })
+                time: this.refs.myInput2.value,
+                isTop:false,
+            }
+            dispatch(addMess(newObject))
         }
     }
-    keySubmit = e =>{
-        if(e.keyCode === KEY_CODE)
+    keySubmit = e => {
+        if (e.keyCode === KEY_CODE)
             this.handerAdd();
-    }
-    renderList = () => {
-        return this.state.overreturn ? (
-            <div>
-                <ul className="content_2" >
-                    <li className="item">名称:<input className="app-input" ref="myInput"></input></li>
-                    <li className="item">内容:<input className="app-input" ref="myInput1"></input></li>
-                    <li className="item">时间:<input className="app-input" ref="myInput2" onKeyDown={this.keySubmit}></input></li>
-                    <li className="item" onClick={this.handerAdd} >添加</li>
-                </ul>
-            </div>
-        ) : null;
     }
     render() {
         return (
@@ -60,7 +51,16 @@ export default class AddTodo extends Component {
                     </div>
                 </div>
                 {
-                    this.renderList()
+                    this.state.overreturn ? (
+                        <div>
+                            <ul className="content_2" >
+                                <li className="item">名称:<input className="app-input" ref="myInput"></input></li>
+                                <li className="item">内容:<input className="app-input" ref="myInput1"></input></li>
+                                <li className="item">时间:<input className="app-input" ref="myInput2" onKeyDown={this.keySubmit}></input></li>
+                                <li className="item" onClick={this.handerAdd} >添加</li>
+                            </ul>
+                        </div>
+                    ) : null
                 }
             </div>
         )
