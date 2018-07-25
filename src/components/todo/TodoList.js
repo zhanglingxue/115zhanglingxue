@@ -5,13 +5,7 @@ import './todo.css';
 const closeImg = require('../../img/close.png')
 
 export default class TodoList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            check: false,
-            deleteArr: []
-        }
-    }
+
     renderDialog = (idx) => {
         const { dispatch, state } = this.props;
         dispatch(moreChance(
@@ -28,7 +22,6 @@ export default class TodoList extends Component {
     }
     chanceDiv = (event) => {
         const { state, dispatch } = this.props;
-        const copeMessage = state.messages.slice()
         if (event.target.innerHTML === "置顶") {
             dispatch(topMessages(
                 state.idx,
@@ -41,15 +34,12 @@ export default class TodoList extends Component {
                 !state.multipleChoice
             ))
         } else if (event.target.innerHTML === "多选删除") {
-            // this.setState({
-            //     check: true,
-            //     multipleChoice: false,
-            // })
+
         }
     }
     renderChance = () => {
         const { state } = this.props;
-        return this.props.state.multipleChoice ? (
+        return state.multipleChoice ? (
             <div className="app-dialog">
                 <img src={closeImg} alt='' onClick={this.closeDiv} />
                 <ul className="content_1" onClick={this.chanceDiv}>
@@ -60,14 +50,14 @@ export default class TodoList extends Component {
             </div>
         ) : null;
     }
-    checkBox = (idx) => {
-        if (this.state.check)
-            return (
-                <div className="checkBox">
-                    <input type="checkbox" onChange={this.handleMoreDelete.bind(this, idx)} />
-                </div>
-            )
-    }
+    // checkBox = (idx) => {
+    //     if (this.state.check)
+    //         return (
+    //             <div className="checkBox">
+    //                 <input type="checkbox" onChange={this.handleMoreDelete.bind(this, idx)} />
+    //             </div>
+    //         )
+    // }
     // handleMoreDelete = (idx, event) => {
     //     if (event.target.checked) {
     //         this.state.deleteArr.push(idx)
@@ -105,7 +95,7 @@ export default class TodoList extends Component {
     //     })
     // }
     render() {
-        const { state, dispatch } = this.props;
+        const { state } = this.props;
         let active = 'active';
         return (
             <div className="container">
@@ -116,7 +106,7 @@ export default class TodoList extends Component {
                                 if(item.isTop){
                                     return (
                                         <li className={'eve_content '+active } key={index} >
-                                            {this.checkBox(index)}
+                                            {/* {this.checkBox(index)} */}
                                             <img src={item.img} alt='' />
                                             <div className="textContent">
                                                 <p className="chatName">{item.title}</p>
@@ -126,14 +116,13 @@ export default class TodoList extends Component {
                                                 <p className="chatTime">{item.time}</p>
                                                 <button className="button" onClick={this.renderDialog.bind(this, index)}>更多</button>
                                             </div>
-                                            {this.renderChance()}
-    
+                                            {/* {this.renderChance()} */}
                                         </li>
                                     )
                                 }else{
                                     return (
                                         <li className="eve_content" key={index}>
-                                            {this.checkBox(index)}
+                                            {/* {this.checkBox(index)} */}
                                             <img src={item.img} alt='' />
                                             <div className="textContent">
                                                 <p className="chatName">{item.title}</p>

@@ -24,4 +24,5 @@ export const initState = {
     ],
     multipleChoice: false,
     idx: null,
+    deleteArray:[],
 };
