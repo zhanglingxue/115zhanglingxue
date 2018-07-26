@@ -32,25 +32,28 @@ export default function todoList(state = initState, action) {
             const newMessage = state.messages.slice();
             const newList = { ...state };
             let temp = null;
-            for (let index in newMessage) {
-                if (!newMessage[index].isTop) {
-                    temp = index;
-                    break;
+            if(newMessage.length === 1){ //当置顶长度为1时else方法不可用，否则会添加到置顶元素的前部
+                if(newMessage[0].isTop){
+                    newMessage.push({...action.item})
                 }
+                newList.messages = newMessage;
+            }else{
+                for (let index in newMessage) {
+                    if (!newMessage[index].isTop) {
+                        temp = index;
+                        break;
+                    }
+                }
+                const topArray = newMessage.splice(0, temp);
+                topArray.push({
+                    ...action.item,
+                })
+                const newMess = topArray.concat(newMessage);
+                newList.messages = newMess;
             }
-            const topArray = newMessage.splice(0, temp);
-            topArray.push({
-                ...action.item,
-            })
-            const newMess = topArray.concat(newMessage);
-            newList.messages = newMess;
             return newList;
         }
-        case actionTypes.MORE_CHANCE: {
-            const newState = { ...state };
-            return newState;
-        }
-        case actionTypes.DELETE_MESSAGE: {
+        case actionTypes.DELETE_MESSAGE: { //删除某一行元素
             const copeState = { ...state };
             const copeMessages = state.messages.slice();
             const { idx } = action;
@@ -58,7 +61,7 @@ export default function todoList(state = initState, action) {
             copeState.messages = copeMessages;
             return copeState;
         }
-        case actionTypes.TOP_MESSAGE: {
+        case actionTypes.TOP_MESSAGE: { //置顶某一行元素，将自带的isTop置为true
             const idx = action.idx;
             const _state = { ...state };
             const _message = state.messages.slice();
@@ -68,6 +71,13 @@ export default function todoList(state = initState, action) {
             _message.unshift(temp);
             _state.messages = _message;
             return _state;
+        }
+        case actionTypes.DELETE_ITEM: { //批量删除
+            const newState = {...state};
+            let newMessages = state.messages;
+            newMessages = action.item;
+            newState.messages = newMessages;
+            return newState;
         }
         default:
             return state;

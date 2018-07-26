@@ -34,11 +34,42 @@ function topMessages(idx, isTop, multipleChoice) {
         multipleChoice
     }
 }
+function deleteMoreMessages(idx,multipleChoice,checked) {
+    return {
+        type:actionTypes.DELETE_MORE_MESSAGES,
+        idx,
+        multipleChoice,
+        checked
+    }
+}
+function overDelete(item) {
+    return {
+        type:actionTypes.OVER_DELETE,
+        item
+    }
+}
+function addDeleteArray(item) {
+    return {
+        type:actionTypes.ADD_DELETE_ARRAY,
+        item
+    }
+}
+function deleteItem(item,isChecked) {
+    return {
+        type:actionTypes.DELETE_ITEM,
+        item,
+        isChecked
+    }
+}
 
 export {
     AddTodoCreator,
     moreChance,
     addMess,
     deleteMessage,
-    topMessages
+    topMessages,
+    deleteMoreMessages,
+    overDelete,
+    addDeleteArray,
+    deleteItem
 }

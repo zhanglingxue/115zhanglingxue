@@ -25,7 +25,11 @@ export default class Dialog extends Component {
                 !state.switchState.multipleChoice
             )
         } else if (event.target.innerHTML === "多选删除") {
-
+            todoActions.deleteMoreMessages(
+                state.switchState.idx,
+                !state.switchState.multipleChoice,
+                !state.switchState.isChecked
+            )
         }
     }
     render() {
