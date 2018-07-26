@@ -28,26 +28,23 @@ const initState = {
 
 export default function todoList(state = initState, action) {
     switch (action.type) {
-        case actionTypes.ADD_MESSAGE: {
+        case actionTypes.ADD_MESSAGE: { //检测只有置顶删除时的操作
             const newMessage = state.messages.slice();
             const newList = { ...state };
             let temp = null;
-            if(newMessage.length === 1){ //当置顶长度为1时else方法不可用，否则会添加到置顶元素的前部
-                if(newMessage[0].isTop){
-                    newMessage.push({...action.item})
+            let n = 0;
+            for (n = 0;n < newMessage.length;n ++) {
+                if (!newMessage[n].isTop) {
+                    temp = n;
+                    break;
                 }
+            }
+            if(n === newMessage.length){
+                newMessage.push(action.item)
                 newList.messages = newMessage;
             }else{
-                for (let index in newMessage) {
-                    if (!newMessage[index].isTop) {
-                        temp = index;
-                        break;
-                    }
-                }
                 const topArray = newMessage.splice(0, temp);
-                topArray.push({
-                    ...action.item,
-                })
+                topArray.push(action.item)
                 const newMess = topArray.concat(newMessage);
                 newList.messages = newMess;
             }
