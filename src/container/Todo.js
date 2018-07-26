@@ -4,17 +4,19 @@ import TodoList from '../components/todo/TodoList';
 import Filter from '../components/todo/Filter';
 import Dialog from '../components/todo/Dialog';
 import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as todoActionCreators from '../actions'
 import '../components/todo/todo.css';
 
 class Todo extends Component {
 
     render() {
-        const { dispatch } = this.props;
+        const { todoActions } = this.props;
         return (
             <div className="todo-ctn">
-                <AddTodo dispatch={dispatch} />
-                <TodoList state={this.props} dispatch={dispatch} />
-                <Dialog state={this.props} dispatch={dispatch}/>
+                <AddTodo todoActions={todoActions} />
+                <TodoList state={this.props} todoActions={todoActions} />
+                <Dialog state={this.props} todoActions={todoActions}/>
                 <Filter />
             </div>
         )
@@ -22,7 +24,12 @@ class Todo extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const props = state;
-    return props;
+    const {messageState,switchState} = state;
+    return {messageState,switchState};
 }
-export default connect(mapStateToProps)(Todo);
+function mapDispatchToProps(dispatch){
+    return {
+      todoActions: bindActionCreators(todoActionCreators, dispatch)
+    }
+  }
+export default connect(mapStateToProps,mapDispatchToProps)(Todo);

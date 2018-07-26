@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { moreChance } from '../../actions';
 import TodoItem from './TodoItem';
 import './todo.css';
 
@@ -53,35 +52,28 @@ export default class TodoList extends Component {
     /*---------多选渲染勾选框的函数(未写)end-----------*/
 
     //回调函数
-    renderDialog = (idx) => {
-        const { dispatch, state } = this.props;
-        dispatch(moreChance(
-            idx,
-            !state.multipleChoice
-        ))
-    }
-
+    
     render() {
-        const { state } = this.props;
+        const { state,todoActions } = this.props;
         let active = 'active';
         return (
             <div className="container">
                 <div className="content" >
                     <ul id="content">
                         {
-                            state.messages.map((item, index) => {
+                            state.messageState.messages.map((item, index) => {
                                 if (item.isTop) {
                                     return (
                                         <li className={'eve_content ' + active} key={index} >
                                             <TodoItem item={item} index={index}
-                                                renderDialog={this.renderDialog} />
+                                                todoActions={todoActions} state={state}/>
                                         </li>
                                     )
                                 } else {
                                     return (
                                         <li className="eve_content" key={index}>
                                             <TodoItem item={item} index={index}
-                                                renderDialog={this.renderDialog} />
+                                                todoActions={todoActions} state={state}/>
                                         </li>
                                     )
                                 }

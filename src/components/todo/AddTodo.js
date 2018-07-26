@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { addMess } from '../../actions'
 import './todo.css'
 
 const searchImg = require('../../img/red_add.png')
@@ -18,7 +17,7 @@ export default class AddTodo extends Component {
         })
     }
     handerAdd = () => {
-        const { dispatch } = this.props;
+        const { todoActions } = this.props;
         if (!this.refs.myInput.value || !this.refs.myInput1.value || !this.refs.myInput2.value) {
             this.setState({
                 overreturn: !this.state.overreturn,
@@ -34,7 +33,7 @@ export default class AddTodo extends Component {
                 time: this.refs.myInput2.value,
                 isTop: false,
             }
-            dispatch(addMess(newObject))
+            todoActions.addMess(newObject)
         }
     }
     keySubmit = e => {

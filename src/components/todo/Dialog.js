@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
-import {
-    moreChance,
-    deleteMessage,
-    topMessages
-} from '../../actions'
+// import {
+//     moreChance,
+//     deleteMessage,
+//     topMessages
+// } from '../../actions'
 import './todo.css'
 
 const closeImg = require('../../img/close.png')
 
 export default class Dialog extends Component {
     closeDiv = () => {
-        const { dispatch, state } = this.props;
-        dispatch(moreChance(
+        const { todoActions, state } = this.props;
+        todoActions.moreChance(
             null,
-            !state.multipleChoice
-        ))
+            !state.switchState.multipleChoice
+        )
     }
     chanceDiv = (event) => {
-        const { state, dispatch } = this.props;
+        const { state, todoActions } = this.props;
         if (event.target.innerHTML === "置顶") {
-            dispatch(topMessages(
-                state.idx.idx,
+            todoActions.topMessages(
+                state.switchState.idx,
                 true,
-                !state.multipleChoice
-            ))
+                !state.switchState.multipleChoice
+            )
         } else if (event.target.innerHTML === "删除") {
-            dispatch(deleteMessage(
-                state.idx.idx,
-                !state.multipleChoice
-            ))
+            todoActions.deleteMessage(
+                state.switchState.idx,
+                !state.switchState.multipleChoice
+            )
         } else if (event.target.innerHTML === "多选删除") {
 
         }
     }
     render() {
         const { state } = this.props;
-        return state.multipleChoice ? (
+        return state.switchState.multipleChoice ? (
             <div className="app-dialog">
                 <img src={closeImg} alt='' onClick={this.closeDiv} />
                 <ul className="content_1" onClick={this.chanceDiv}>

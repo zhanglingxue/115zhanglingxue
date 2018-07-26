@@ -4,11 +4,18 @@ import './todo.css';
 export default class TodoList extends Component {
 
     //点击更多渲染弹框事件
-    handleDialog = (idx) =>{
-        const {renderDialog} = this.props;
-        renderDialog({
-            idx
-        })
+    // handleDialog = (idx) =>{
+    //     const {renderDialog} = this.props;
+    //     renderDialog({
+    //         idx
+    //     })
+    // }
+    handleDialog = (idx) => {
+        const { state,todoActions } = this.props;
+        todoActions.moreChance(
+            idx,
+            !state.switchState.multipleChoice
+        )
     }
     render() {
         const { item,index } = this.props;
