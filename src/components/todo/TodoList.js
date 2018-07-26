@@ -95,7 +95,7 @@ export default class TodoList extends Component {
     //     })
     // }
     render() {
-        const { state } = this.props;
+        const { state   } = this.props;
         let active = 'active';
         return (
             <div className="container">
@@ -116,7 +116,7 @@ export default class TodoList extends Component {
                                                 <p className="chatTime">{item.time}</p>
                                                 <button className="button" onClick={this.renderDialog.bind(this, index)}>更多</button>
                                             </div>
-                                            {/* {this.renderChance()} */}
+                                            {this.renderChance()}
                                         </li>
                                     )
                                 }else{
@@ -133,7 +133,6 @@ export default class TodoList extends Component {
                                                 <button className="button" onClick={this.renderDialog.bind(this, index)}>更多</button>
                                             </div>
                                             {this.renderChance()}
-    
                                         </li>
                                     )
                                 }
