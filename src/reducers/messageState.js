@@ -28,7 +28,7 @@ const initState = {
 
 export default function todoList(state = initState, action) {
     switch (action.type) {
-        case actionTypes.ADD_MESSAGE: { //检测只有置顶删除时的操作
+        case actionTypes.ADD_MESSAGE: { //检测只有置顶然后添加时的判断操作
             const newMessage = state.messages.slice();
             const newList = { ...state };
             let temp = null;
