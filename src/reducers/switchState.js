@@ -3,7 +3,7 @@ import * as actionTypes from "../const/ActionTypes";
 const initState = {
     multipleChoice: false,
     idx: null,
-    deleteArray:[],
+    // deleteArray:[],
 };
 
 export default function todoList(state = initState, action) {

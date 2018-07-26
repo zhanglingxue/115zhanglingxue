@@ -1,40 +1,34 @@
-import {
-    ADD_TODO,
-    MORE_CHANCE,
-    ADD_MESSAGE,
-    DELETE_MESSAGE,
-    TOP_MESSAGE
-} from "../const/ActionTypes";
+import * as actionTypes from "../const/ActionTypes";
 
 function AddTodoCreator(text) {
     return {
-        type: ADD_TODO,
+        type: actionTypes.ADD_TODO,
         text
     }
 }
 function moreChance(idx, multipleChoice) {
     return {
-        type: MORE_CHANCE,
+        type: actionTypes.MORE_CHANCE,
         idx,
         multipleChoice
     }
 }
 function addMess(item) {
     return {
-        type: ADD_MESSAGE,
+        type: actionTypes.ADD_MESSAGE,
         item
     }
 }
 function deleteMessage(idx, multipleChoice) {
     return {
-        type: DELETE_MESSAGE,
+        type: actionTypes.DELETE_MESSAGE,
         idx,
         multipleChoice
     }
 }
 function topMessages(idx, isTop, multipleChoice) {
     return {
-        type: TOP_MESSAGE,
+        type: actionTypes.TOP_MESSAGE,
         idx,
         isTop,
         multipleChoice

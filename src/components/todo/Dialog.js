@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-// import {
-//     moreChance,
-//     deleteMessage,
-//     topMessages
-// } from '../../actions'
 import './todo.css'
 
 const closeImg = require('../../img/close.png')
