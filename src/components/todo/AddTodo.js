@@ -32,7 +32,7 @@ export default class AddTodo extends Component {
                 title: this.refs.myInput.value,
                 description: this.refs.myInput1.value,
                 time: this.refs.myInput2.value,
-                isTop:false,
+                isTop: false,
             }
             dispatch(addMess(newObject))
         }

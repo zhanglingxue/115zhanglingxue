@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AddTodo from '../components/todo/AddTodo';
 import TodoList from '../components/todo/TodoList';
 import Filter from '../components/todo/Filter';
+import Dialog from '../components/todo/Dialog';
 import { connect } from 'react-redux';
 import '../components/todo/todo.css';
 
@@ -13,7 +14,7 @@ class Todo extends Component {
             <div className="todo-ctn">
                 <AddTodo dispatch={dispatch} />
                 <TodoList state={this.props} dispatch={dispatch} />
-                {/* <Check /> */}
+                <Dialog state={this.props} dispatch={dispatch}/>
                 <Filter />
             </div>
         )

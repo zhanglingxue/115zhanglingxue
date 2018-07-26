@@ -1,55 +1,11 @@
 import React, { Component } from 'react';
-import { moreChance, deleteMessage,topMessages } from '../../actions'
+import { moreChance } from '../../actions';
+import TodoItem from './TodoItem';
 import './todo.css';
-
-const closeImg = require('../../img/close.png')
 
 export default class TodoList extends Component {
 
-    renderDialog = (idx) => {
-        const { dispatch, state } = this.props;
-        dispatch(moreChance(
-            idx,
-            !state.multipleChoice
-        ))
-    }
-    closeDiv = () => {
-        const { dispatch, state } = this.props;
-        dispatch(moreChance(
-            null,
-            !state.multipleChoice
-        ))
-    }
-    chanceDiv = (event) => {
-        const { state, dispatch } = this.props;
-        if (event.target.innerHTML === "置顶") {
-            dispatch(topMessages(
-                state.idx,
-                true,
-                !state.multipleChoice
-            ))
-        } else if (event.target.innerHTML === "删除") {
-            dispatch(deleteMessage(
-                state.idx,
-                !state.multipleChoice
-            ))
-        } else if (event.target.innerHTML === "多选删除") {
-
-        }
-    }
-    renderChance = () => {
-        const { state } = this.props;
-        return state.multipleChoice ? (
-            <div className="app-dialog">
-                <img src={closeImg} alt='' onClick={this.closeDiv} />
-                <ul className="content_1" onClick={this.chanceDiv}>
-                    <li className="item">置顶</li>
-                    <li className="item">删除</li>
-                    <li className="item">多选删除</li>
-                </ul>
-            </div>
-        ) : null;
-    }
+    /*---------多选渲染勾选框的函数(未写)-----------*/
     // checkBox = (idx) => {
     //     if (this.state.check)
     //         return (
@@ -94,8 +50,19 @@ export default class TodoList extends Component {
     //         check: false
     //     })
     // }
+    /*---------多选渲染勾选框的函数(未写)end-----------*/
+
+    //回调函数
+    renderDialog = (idx) => {
+        const { dispatch, state } = this.props;
+        dispatch(moreChance(
+            idx,
+            !state.multipleChoice
+        ))
+    }
+
     render() {
-        const { state   } = this.props;
+        const { state } = this.props;
         let active = 'active';
         return (
             <div className="container">
@@ -103,40 +70,22 @@ export default class TodoList extends Component {
                     <ul id="content">
                         {
                             state.messages.map((item, index) => {
-                                if(item.isTop){
+                                if (item.isTop) {
                                     return (
-                                        <li className={'eve_content '+active } key={index} >
-                                            {/* {this.checkBox(index)} */}
-                                            <img src={item.img} alt='' />
-                                            <div className="textContent">
-                                                <p className="chatName">{item.title}</p>
-                                                <p className="chatCont">{item.description}</p>
-                                            </div>
-                                            <div className="timeRight">
-                                                <p className="chatTime">{item.time}</p>
-                                                <button className="button" onClick={this.renderDialog.bind(this, index)}>更多</button>
-                                            </div>
-                                            {this.renderChance()}
+                                        <li className={'eve_content ' + active} key={index} >
+                                            <TodoItem item={item} index={index}
+                                                renderDialog={this.renderDialog} />
                                         </li>
                                     )
-                                }else{
+                                } else {
                                     return (
                                         <li className="eve_content" key={index}>
-                                            {/* {this.checkBox(index)} */}
-                                            <img src={item.img} alt='' />
-                                            <div className="textContent">
-                                                <p className="chatName">{item.title}</p>
-                                                <p className="chatCont">{item.description}</p>
-                                            </div>
-                                            <div className="timeRight">
-                                                <p className="chatTime">{item.time}</p>
-                                                <button className="button" onClick={this.renderDialog.bind(this, index)}>更多</button>
-                                            </div>
-                                            {this.renderChance()}
+                                            <TodoItem item={item} index={index}
+                                                renderDialog={this.renderDialog} />
                                         </li>
                                     )
                                 }
-                                
+
                             })
                         }
                     </ul>
