@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import DeleteMore from './DeleteMore'
-import TodoItem from './TodoItem';
-import './todo.css';
+import TodoItem from './TodoItem'
+import './todo.css'
 
 export default class TodoList extends Component {
     render() {

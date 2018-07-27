@@ -8,7 +8,7 @@ export default class TodoList extends Component {
             !state.switchState.isChecked
         )
     }
-    x = (a,b) =>{
+    x = (a,b) =>{ //从大到小排序方法
         return b>a;
     }
     deleteMore = () =>{

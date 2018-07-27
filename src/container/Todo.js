@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import AddTodo from '../components/todo/AddTodo';
-import TodoList from '../components/todo/TodoList';
-import Filter from '../components/todo/Filter';
-import Dialog from '../components/todo/Dialog';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { Component } from 'react'
+import AddTodo from '../components/todo/AddTodo'
+import TodoList from '../components/todo/TodoList'
+import Filter from '../components/todo/Filter'
+import Dialog from '../components/todo/Dialog'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import * as todoActionCreators from '../actions'
-import '../components/todo/todo.css';
+import '../components/todo/todo.css'
 
 class Todo extends Component {
     render() {

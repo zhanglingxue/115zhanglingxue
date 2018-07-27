@@ -10,7 +10,7 @@ function moreChance(idx, multipleChoice) {
     return {
         type: actionTypes.MORE_CHANCE,
         idx,
-        multipleChoice
+        multipleChoice        
     }
 }
 function addMess(item) {

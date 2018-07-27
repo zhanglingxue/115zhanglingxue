@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'antd'
 import './todo.css';
 
 export default class TodoList extends Component {
@@ -24,7 +25,6 @@ export default class TodoList extends Component {
         
         todoActions.addDeleteArray(newArray)
     }
-
     checkBox = (idx) =>{
         const { state } = this.props;
         return state.switchState.isChecked ? (
