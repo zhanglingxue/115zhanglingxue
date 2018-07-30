@@ -1,3 +1,4 @@
+import * as actionTypes from "../../const/OpActionTypes.js";
 
 const initState = {
     user:[{
@@ -28,6 +29,12 @@ const initState = {
 
 export default function todoList(state = initState, action) {
     switch (action.type) {
+        case actionTypes.ADD_WE_CHAT:
+            const newState = {...state};
+            const newUser = state.user.slice();
+            
+            console.log(newUser[0])
+            return state;
         default:
             return state;
     }
