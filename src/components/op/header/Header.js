@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Avatar,Col,Input,Button,Icon } from 'antd';
+import { Avatar,Col,Input,Icon } from 'antd';
 import './Header.css';
 
 export default class Header extends Component {
@@ -32,10 +32,8 @@ export default class Header extends Component {
                         <Col span={7} key={idx}>
                             <span className='wechat_num span_title'>{`${userName[item]}`}：</span>
                             <span className='wechat_num wechat_num_input'>
-                                <Input placeholder={`${userContent[item]}`} />
-                            </span>
-                            <span className='wechat_num'>
-                                <Button className='button_padding'>提交</Button>
+                                <Input addonAfter={<Icon type="check" onClick={this.submit.bind(this,idx)}/>} 
+                                defaultValue="" />
                             </span>
                         </Col>
                     )
@@ -45,6 +43,9 @@ export default class Header extends Component {
         })      
     }
 
+    submit = (idx,event) =>{
+        console.log(idx)
+    }
     render() {
         const { state } = this.props;
         return (

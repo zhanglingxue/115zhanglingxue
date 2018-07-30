@@ -4,8 +4,10 @@
     border: 1px solid #e0e0e0;
 }
 .color_font{
-    color:red;
+    color:#e01171;
+    font-weight: bold;
 }
 .color_font_1{
-    color: yellow;
+    color: #fcd77f;
+    font-weight: bold;
 }

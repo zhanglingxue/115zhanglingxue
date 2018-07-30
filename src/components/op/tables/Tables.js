@@ -18,7 +18,7 @@ export default class Tables extends Component {
                     <h2>历史数据</h2>
                 </div>
                 <Table dataSource={state.historyNum.dataSource} 
-                columns={state.historyNum.columns} bordered/>
+                columns={state.historyNum.columns} bordered />
             </div>
         )
     }
