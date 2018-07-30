@@ -39,13 +39,13 @@ export default function todoList(state = initState, action) {
                     break;
                 }
             }
-            if(n === newMessage.length){
+            if(n === newMessage.length){  //判断当前所有元素全为置顶元素，添加item直接push
                 newMessage.push(action.item)
                 newList.messages = newMessage;
             }else{
-                const topArray = newMessage.splice(0, temp);
-                topArray.push(action.item)
-                const newMess = topArray.concat(newMessage);
+                const topArray = newMessage.splice(0, temp); //分开置顶与未置顶元素
+                topArray.push(action.item) //将添加item加入置顶数组末端
+                const newMess = topArray.concat(newMessage); 
                 newList.messages = newMess;
             }
             return newList;

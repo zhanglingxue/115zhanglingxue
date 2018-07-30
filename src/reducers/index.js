@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import messageState from './messageState';
-import switchState from './switchState';
+import historyNum from './op/historyNum';
+import onTimeClass from './op/onTimeClass';
+import userState from './op/userState'
 
 export default combineReducers({
-    messageState,
-    switchState
+    historyNum,
+    onTimeClass,
+    userState
 });
 

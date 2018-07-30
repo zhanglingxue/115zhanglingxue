@@ -1,0 +1,12 @@
+.left_button{
+    float: left;
+}
+.right_button{
+    float: right;
+}
+.gray_button{
+    background: gray;
+}
+.ant-btn{
+    margin: 3px;
+}

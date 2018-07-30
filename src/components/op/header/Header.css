@@ -1,0 +1,35 @@
+.header_top{
+    height:150px;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex: 2;
+}
+.user_cont{
+    float: right;
+    flex: 1;
+    margin-left:20px;
+}
+.wechat_num{
+    float: left;
+}
+.span_title{
+    width:80px;
+}
+.wechat_num_input{
+    width: 100px;
+    display: block;
+}
+.user_cont h3{
+    margin-top: 20px;
+    color: blue;
+}
+.list_user{
+    height:30px;
+}
+.ant-btn{
+    margin-top: 0!important;
+}
+.button_padding{
+    padding: 0!important;
+}
