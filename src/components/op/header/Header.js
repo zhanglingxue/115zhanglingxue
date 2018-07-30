@@ -38,8 +38,8 @@ export default class Header extends Component {
                         <Col span={7} key={idx}>
                             <span className='wechat_num span_title'>{`${userName[item]}`}：</span>
                             <span className='wechat_num wechat_num_input'>
-                                <Input addonAfter={<Icon type="check" onClick={this.submit.bind(this, idx)} />}
-                                    defaultValue="" onChange={this.input_content.bind(this)} />
+                                <Input addonAfter={<Icon type="check" onClick={this.submit.bind(this,item)} />}
+                                    defaultValue={`${userContent[item]}`} onChange={this.input_content.bind(this)} />
                             </span>
                         </Col>
                     )
@@ -54,9 +54,12 @@ export default class Header extends Component {
         })
     }
 
-    submit = (idx, event) => {
+    submit = (item ,event) => {
         const { todoActions } =this.props;
-        todoActions.AddWeChat(this.state.input_content,idx)
+        todoActions.AddWeChat(this.state.input_content,item);
+        this.setState({
+            input_content:''
+        })
     }
     render() {
         const { state } = this.props;

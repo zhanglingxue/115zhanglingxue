@@ -1,10 +1,10 @@
 import * as actionTypes from "../../const/OpActionTypes.js";
 
-function AddWeChat(item,idx) {
+function AddWeChat(text,item) {
     return {
         type: actionTypes.ADD_WE_CHAT,
-        item,
-        idx
+        text,
+        item
     }
 }
 function Note() {

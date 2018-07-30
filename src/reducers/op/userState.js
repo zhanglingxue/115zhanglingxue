@@ -9,10 +9,10 @@ const initState = {
         phone:'15230529628',
         onTimeClass:'摄影课 绘画课',
         didStudy:'876天',
-        weChatNum:'null',
+        weChatNum:'',
         entTime:'2018-03-30',
         lastLogin:'2018-03-30',
-        note:'null',
+        note:'',
     }],
     map:[{
         peopleNum:'学员编号',
@@ -32,9 +32,9 @@ export default function todoList(state = initState, action) {
         case actionTypes.ADD_WE_CHAT:
             const newState = {...state};
             const newUser = state.user.slice();
-            
-            console.log(newUser[0])
-            return state;
+            newUser[0][action.item] = action.text;
+            newState.user = newUser;
+            return newState;
         default:
             return state;
     }
