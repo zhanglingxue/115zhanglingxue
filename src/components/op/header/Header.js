@@ -54,7 +54,7 @@ export default class Header extends Component {
                     <Col span={7} >
                         <div className='list_user' >
                             <span className='wechat_input'>微信号码：</span>
-                            <span className='wechat_num_input wechat_input'>
+                            <span className='wechat_num_input'>
                                 <Input addonAfter={<Icon type="check" />}
                                     value={`${user.weiChatCode}`}  />
                             </span>
@@ -75,7 +75,7 @@ export default class Header extends Component {
                     <Col span={7} >
                         <div className='list_user' >
                         <span className='wechat_input'>备注：</span>
-                            <span className='wechat_num_input wechat_input'>
+                            <span className='wechat_num_input '>
                                 <Input addonAfter={<Icon type="check" />}
                                     value={`${user.remark}`}  />
                             </span>
@@ -84,39 +84,6 @@ export default class Header extends Component {
                 </Row>
             </div>
         )
-    //     const userContent = state.userState.data;
-    //     return Object.keys(userContent).map((item, idx) => {
-    //         if (`${item}` !== 'tel' && `${item}` !== 'weiChatCode' && `${item}` !== 'remark') {
-    //             return (
-    //                 <Col span={7} key={idx}>
-    //                     <div className='list_user' >
-    //                         学员编号：${userContent[item]}`}
-    //                     </div>
-    //                 </Col>
-    //             )
-    //         } else if (`${item}` === 'phone') {
-    //             return (
-    //                 <Col span={7} key={idx}>
-    //                     <div className='list_user' >
-    //                     学员编号：${userContent[item]}`}
-    //                         <Icon type="copy" />
-    //                     </div>
-    //                 </Col>
-    //             )
-    //         } else {
-    //             return (
-    //                 <Col span={7} key={idx}>
-    //                     <span className='wechat_num span_title'>{`${userName[item]}`}：</span>
-    //                     <span className='wechat_num wechat_num_input'>
-    //                         <Input addonAfter={<Icon type="check" onClick={this.submit.bind(this,item)} />}
-    //                             value={`${userContent[item]}`} onChange={this.input_content.bind(this)} />
-    //                     </span>
-    //                 </Col>
-    //             )
-    //         }
-
-            
-    //     })
     }
     input_content = (event) => {
         this.setState({

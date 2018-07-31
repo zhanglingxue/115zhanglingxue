@@ -20,9 +20,11 @@
     width: 140px;
     display: block;
     margin-bottom:3px;
+    float: left;
 }
 .wechat_input{
     float: left;
+    width: 80px;
 }
 
 .user_cont h3{

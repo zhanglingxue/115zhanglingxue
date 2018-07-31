@@ -8,14 +8,15 @@ import * as opAction from '../actions/op/op'
 import '../components/op/op.css'
 
 class Op extends Component {
-    constructor(props){
-        super(props);
+    
+    componentDidMount = () =>{
         const { dispatch} =this.props;
         opAction.PostUserContent(dispatch);
         opAction.PostClassContent(dispatch)
     }
-    
+
     render() {
+        
         const { todoActions,dispatch } = this.props;
         return (
             <div className="todo-ctn">
