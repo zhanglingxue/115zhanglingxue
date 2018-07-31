@@ -13,7 +13,7 @@ export default class Tables extends Component {
                     <h2>在学课程</h2>
                 </div>
                 <Table dataSource={state.onTimeClass.dataSource}
-                    columns={state.historyNum.columns} bordered />
+                    columns={state.historyNum.columns} bordered pagination={false}/>
                 <div className='title_table'>
                     <h2>历史数据</h2>
                 </div>

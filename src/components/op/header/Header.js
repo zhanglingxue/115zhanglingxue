@@ -1,52 +1,122 @@
 import React, { Component } from 'react';
-import { Avatar, Col, Input, Icon } from 'antd';
+import { Avatar, Col, Row,Input,Icon } from 'antd';
 import './Header.css';
 
 export default class Header extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             input_content: '',
         }
     }
-
     showUserContent = () => {
         const { state } = this.props;
-        const userContent = state.userState.user[0];
-        const userName = state.userState.map[0];
-        return Object.keys(userContent).map((item, idx) => {
-            if (`${userName[item]}` !== 'undefined') {
-                if (`${item}` !== 'phone' && `${item}` !== 'weChatNum' && `${item}` !== 'note') {
-                    return (
-                        <Col span={7} key={idx}>
-                            <div className='list_user' >
-                                {`${userName[item]}：${userContent[item]}`}
-                            </div>
-                        </Col>
-                    )
-                } else if (`${item}` === 'phone') {
-                    return (
-                        <Col span={7} key={idx}>
-                            <div className='list_user' >
-                                {`${userName[item]}：${userContent[item]}`}
-                                <Icon type="copy" />
-                            </div>
-                        </Col>
-                    )
-                } else {
-                    return (
-                        <Col span={7} key={idx}>
-                            <span className='wechat_num span_title'>{`${userName[item]}`}：</span>
-                            <span className='wechat_num wechat_num_input'>
-                                <Input addonAfter={<Icon type="check" onClick={this.submit.bind(this,item)} />}
-                                    defaultValue={`${userContent[item]}`} onChange={this.input_content.bind(this)} />
+        const user = state.userState.data;
+        return (
+            <div>
+                <Row>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            学员编号：MID330930115
+                        </div>
+                    </Col>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            在学课程：{
+                                user.learningLesson.map(item =>{
+                                    return (
+                                        <span key={item}>
+                                            {item}
+                                        </span>                                          
+                                    )
+                                })
+                            }
+                        </div>
+                    </Col>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            手机号码：{`${user.tel}`}
+                            <Icon type="copy" /> 
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            最后登录时间：{`${user.lastLoginDate}`}    
+                        </div>
+                    </Col>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            历史付费：{`${user.history_pay}`}
+                        </div>
+                    </Col>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            <span className='wechat_input'>微信号码：</span>
+                            <span className='wechat_num_input wechat_input'>
+                                <Input addonAfter={<Icon type="check" />}
+                                    value={`${user.weiChatCode}`}  />
                             </span>
-                        </Col>
-                    )
-                }
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            入学时间：{`${user.enterDate}`}
+                        </div>
+                    </Col>
+                    <Col span={7} >
+                        <div className='list_user' >
+                            累计学习天数：{`${user.totalLearningDays}`}
+                        </div>
+                    </Col>
+                    <Col span={7} >
+                        <div className='list_user' >
+                        <span className='wechat_input'>备注：</span>
+                            <span className='wechat_num_input wechat_input'>
+                                <Input addonAfter={<Icon type="check" />}
+                                    value={`${user.remark}`}  />
+                            </span>
+                        </div>
+                    </Col>
+                </Row>
+            </div>
+        )
+    //     const userContent = state.userState.data;
+    //     return Object.keys(userContent).map((item, idx) => {
+    //         if (`${item}` !== 'tel' && `${item}` !== 'weiChatCode' && `${item}` !== 'remark') {
+    //             return (
+    //                 <Col span={7} key={idx}>
+    //                     <div className='list_user' >
+    //                         学员编号：${userContent[item]}`}
+    //                     </div>
+    //                 </Col>
+    //             )
+    //         } else if (`${item}` === 'phone') {
+    //             return (
+    //                 <Col span={7} key={idx}>
+    //                     <div className='list_user' >
+    //                     学员编号：${userContent[item]}`}
+    //                         <Icon type="copy" />
+    //                     </div>
+    //                 </Col>
+    //             )
+    //         } else {
+    //             return (
+    //                 <Col span={7} key={idx}>
+    //                     <span className='wechat_num span_title'>{`${userName[item]}`}：</span>
+    //                     <span className='wechat_num wechat_num_input'>
+    //                         <Input addonAfter={<Icon type="check" onClick={this.submit.bind(this,item)} />}
+    //                             value={`${userContent[item]}`} onChange={this.input_content.bind(this)} />
+    //                     </span>
+    //                 </Col>
+    //             )
+    //         }
 
-            }
-        })
+            
+    //     })
     }
     input_content = (event) => {
         this.setState({
@@ -65,10 +135,10 @@ export default class Header extends Component {
         const { state } = this.props;
         return (
             <div className='header_top'>
-                <Avatar shape="square" size="large" src={state.userState.user[0].img}
+                <Avatar shape="square" size="large" src={`${state.userState.data.hurl}`}
                     style={{ width: 130, height: 110, top: 30, }} />
                 <div className='user_cont'>
-                    <h3>{`${state.userState.user[0].classNum}`}</h3>
+                    <h3>{`${state.userState.data.nick}`}</h3>
                     {
                         this.showUserContent()
                     }

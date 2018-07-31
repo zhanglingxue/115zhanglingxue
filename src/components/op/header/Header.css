@@ -21,6 +21,10 @@
     display: block;
     margin-bottom:3px;
 }
+.wechat_input{
+    float: left;
+}
+
 .user_cont h3{
     margin-top: 20px;
     color: blue;
