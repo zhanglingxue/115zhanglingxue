@@ -4,36 +4,17 @@ import '../../components/op/op.css'
 import * as actionTypes from "../../const/OpActionTypes.js";
 
 const initState = {
-    dataSource: [{
-        classInfo: {
-            id:'',
-            name:''
-        },
-        status: '',
-        startTime: '',  //开始时间
-        teacherInfo:{
-            id:'',
-            mid:'',
-            nick:'',
-            realName:'',
-            wxCode:''
-        },
-        enterRate:'',  //
-        signRate:'',  //上课率
-        homeworkSubmitRate:'',  
-        beCommenttedRate:'',
-        satisfyRate:'',  //满意度
-    }], 
+    dataSource: [], 
     columns:[{
         title: '班级',
         dataIndex: 'classInfo.name',
-        key: 'class',
+        key: 'classInfo.id',
         align:'center',
         render:text => <div><Icon type="exclamation" />{text}</div>
     }, {
         title: '课程状态',
         dataIndex: 'status',
-        key: 'course',
+        key: 'status',
         align:'center',
         render:text => {
             if(text === 0){
@@ -45,18 +26,18 @@ const initState = {
     }, {
         title: '开课时间',
         dataIndex: 'startTime',
-        key: 'openTime',
+        key: 'startTime',
         align:'center',
     },{
         title: '教学组负责人',
         dataIndex: 'teacherInfo.nick',
-        key: 'groupPeople',
+        key: 'teacherInfo.id',
         align:'center',
         render:text => <div><Icon type="link" />{text}</div>
     },{
         title: '上课率',
         dataIndex: 'enterRate',
-        key: 'classRate',
+        key: 'enterRate',
         align:'center',
         render: text => {
             const num1 = text.split('/')[0];
@@ -73,7 +54,7 @@ const initState = {
     },{
         title: '作业提交率',
         dataIndex: 'homeworkSubmitRate',
-        key: 'subRate',
+        key: 'homeworkSubmitRate',
         align:'center',
         render: text => {
             const temp = (parseFloat(text)*100).toFixed(2);
@@ -88,7 +69,7 @@ const initState = {
     },{
         title: '被点评情况',
         dataIndex: 'beCommenttedRate',
-        key: 'commentSit',
+        key: 'beCommenttedRate',
         align:'center',
         render: text => {
             const temp = (parseFloat(text)*100).toFixed(2);
@@ -103,7 +84,7 @@ const initState = {
     },{
         title: '打卡率',
         dataIndex: 'signRate',
-        key: 'punchRate',
+        key: 'signRate',
         align:'center',
         render: text => {
             const num1 = text.split('/')[0];
@@ -120,7 +101,7 @@ const initState = {
     },{
         title: '满意度',
         dataIndex: 'satisfyRate',
-        key: 'satDegree',
+        key: 'satisfyRate',
         align:'center',
         render: text => {
             const temp = (parseFloat(text)*100).toFixed(2);

@@ -8,11 +8,12 @@ import * as opAction from '../actions/op/op'
 import '../components/op/op.css'
 
 class Op extends Component {
-    
+
     componentDidMount = () =>{
-        const { dispatch} =this.props;
-        opAction.PostUserContent(dispatch);
-        opAction.PostClassContent(dispatch)
+        const mid = 33090002;
+        const { dispatch } =this.props;
+        opAction.PostUserContent(mid,dispatch);
+        opAction.PostClassContent(mid,dispatch)
     }
 
     render() {
