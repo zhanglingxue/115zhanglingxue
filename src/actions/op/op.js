@@ -47,9 +47,18 @@ function fetchClassInfo(id) {
     }
   }
 }
+
+
+function fetchChanceStudentList(mid) {
+  return {
+    type: actionTypes.FETCH_CHANCE_STUDENT_LIST,
+    mid
+  }
+}
 export {
     fetchUserInfo,
     fetchLessonInfo,
     fetchStudentList,
-    fetchClassInfo
+    fetchClassInfo,
+    fetchChanceStudentList
 }

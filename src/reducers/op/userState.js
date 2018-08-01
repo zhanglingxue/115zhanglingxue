@@ -29,7 +29,8 @@ const initState = {
 
 export default function todoList(state = initState, action) {
     const a = `${actionTypes.FETCH_USER}_SUC`;
-    const b = `${actionTypes.FETCH_STUDENT_LIST}_SUC`
+    const b = `${actionTypes.FETCH_STUDENT_LIST}_SUC`;
+    const c = actionTypes.FETCH_CHANCE_STUDENT_LIST;
     switch (action.type) {
         case a:   
             const newState = {...state};
@@ -39,6 +40,18 @@ export default function todoList(state = initState, action) {
             const newState1 = {...state};
             newState1.studentInfo = action.response;
             return newState1;
+        case c:
+            const ChanceState = {...state};
+            const temp = ChanceState.studentInfo.data.slice();
+            const mid = parseFloat(action.mid);
+            let newArr = []
+            for(let i in temp){
+                if(temp[i].mid === mid){
+                    newArr.push(temp[i])
+                }
+            }
+            ChanceState.studentInfo.data = newArr;
+            return ChanceState;
         default:
             return state;
     }

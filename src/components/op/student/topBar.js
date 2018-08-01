@@ -21,7 +21,7 @@ export default class TopBar extends Component {
 
     handleClick = () =>{
         const {todoActions} = this.props;
-        todoActions.fetchStudentList(this.state.inputVal);
+        todoActions.fetchChanceStudentList(this.state.inputVal);
     }
     render() {
         return (
