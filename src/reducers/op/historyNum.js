@@ -123,7 +123,7 @@ export default function todoList(state = initState, action) {
         case a:
             const newState = {...state}; 
             let newData = state.dataSource.slice();
-            newData = action.data.data.historyLessonsList;
+            newData = action.response.data.historyLessonsList;
             newState.dataSource = newData;
             return newState;
         default:

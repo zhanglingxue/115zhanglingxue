@@ -2,30 +2,52 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Header from '../components/op/header/Header.js'
+import { Tabs } from 'antd'
 import TopBar from '../components/op/topBar/TopBar.js'
+import Student from '../components/op/student/student'
+import Klass from '../components/op/klass/klass'
 import * as todoActionCreators from '../actions/op/op.js'
-import * as opAction from '../actions/op/op'
 import '../components/op/op.css'
 
 class Op extends Component {
-
     componentDidMount = () =>{
         const mid = 33090002;
-        const { dispatch } =this.props;
-        opAction.PostUserContent(mid,dispatch);
-        opAction.PostClassContent(mid,dispatch)
+        const id = 1;
+        const { todoActions } =this.props;
+        todoActions.fetchUserInfo(mid);
+        todoActions.fetchLessonInfo(mid);
+        todoActions.fetchStudentList(mid);
+        todoActions.fetchClassInfo(id);
     }
 
     render() {
-        
-        const { todoActions,dispatch } = this.props;
+        const { todoActions } = this.props;
+        const TabPane = Tabs.TabPane;
         return (
-            <div className="todo-ctn">
-                <div className='op_all'>
-                    <Header state={this.props} todoActions={todoActions} dispatch={dispatch}/>
-                    <TopBar state={this.props} />
-                </div>
-            </div>
+            <Tabs defaultActiveKey="1" onChange={this.callback}>
+                <TabPane tab="tab1" key="1">
+                    <div className="todo-ctn">
+                        <div className='op_all'>
+                            <Header state={this.props} />
+                            <TopBar state={this.props} />
+                        </div>
+                    </div>
+                </TabPane>
+                <TabPane tab="tab2" key="2">
+                    <div className="todo-ctn">
+                        <div className='op_all'>
+                            <Student state={this.props} todoActions={todoActions} />
+                        </div>
+                    </div>
+                </TabPane>
+                <TabPane tab="tab3" key="3">
+                    <div className="todo-ctn">
+                        <div className='op_all'>
+                            <Klass state={this.props} />
+                        </div>
+                    </div>
+                </TabPane>
+            </Tabs>
         )
     }
 }
@@ -33,17 +55,18 @@ class Op extends Component {
 function mapStateToProps(state, ownProps) {
     const { historyNum,
         onTimeClass,
-        userState } = state;
+        userState,columns } = state;
     return {
         historyNum,
         onTimeClass,
-        userState
+        userState,
+        columns
     };
 }
 function mapDispatchToProps(dispatch) {
     return {
         todoActions: bindActionCreators(todoActionCreators, dispatch),
-        dispatch
+        // dispatch
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Op);

@@ -3,12 +3,7 @@ import { Avatar, Col, Row,Input,Icon } from 'antd';
 import './Header.css';
 
 export default class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            input_content: '',
-        }
-    }
+    
     showUserContent = () => {
         const { state } = this.props;
         const user = state.userState.data;
@@ -85,19 +80,7 @@ export default class Header extends Component {
             </div>
         )
     }
-    input_content = (event) => {
-        this.setState({
-            input_content: event.target.value,
-        })
-    }
 
-    submit = (item ,event) => {
-        const { todoActions } =this.props;
-        todoActions.AddWeChat(this.state.input_content,item);
-        this.setState({
-            input_content:''
-        })
-    }
     render() {
         const { state } = this.props;
         return (
