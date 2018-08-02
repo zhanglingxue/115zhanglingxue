@@ -3,6 +3,10 @@ import { Button } from 'antd'
 import './ButtonBox.css';
 
 export default class ButtonBox extends Component {
+    go_back = () =>{
+        const { router } = this.props;
+        router.goBack()
+    }
 
     render() {
         return (
@@ -13,7 +17,7 @@ export default class ButtonBox extends Component {
                     <Button>绘画课</Button>
                 </div>
                 <div className='right_button'>
-                    <Button>返回</Button>
+                    <Button onClick={this.go_back}>返回</Button>
                 </div>
             </div>
         )

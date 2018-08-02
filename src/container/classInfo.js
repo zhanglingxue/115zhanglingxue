@@ -14,20 +14,17 @@ class Op extends Component {
         const mid = 33090002;
         const id = 1;
         const { todoActions } =this.props;
-        todoActions.fetchUserInfo(mid);
-        todoActions.fetchLessonInfo(mid);
-        todoActions.fetchSatisfiledList(mid);
+        todoActions.fetchClassInfo(id);
     }
 
     render() {
-        const { todoActions } = this.props;
-        return (
+        const { todoActions } = this.props;      
+        return (    
             <div className="todo-ctn">
                 <div className='op_all'>
-                    <Header state={this.props} />
-                    <TopBar state={this.props} todoActions={todoActions} />
+                    <Klass state={this.props} />
                 </div>
-            </div>   
+            </div>    
         )
     }
 }

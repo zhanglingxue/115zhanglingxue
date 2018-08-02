@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { Table } from 'antd'
+import { Table,Button } from 'antd'
 import '../student/student.css'
 
 export default class Klass extends Component {
+    go_back = () =>{
+        const { router } = this.props;
+        router.goBack()
+
+    }
 
     render() {
         const { state} = this.props;
@@ -18,7 +23,8 @@ export default class Klass extends Component {
                     /ID:{content.real_teacher.mid}/微信:{content.real_teacher.wx_code}</p>
                 </div>
                 <Table dataSource={state.onTimeClass.classInfo.list}
-                columns={state.columns.columnsClass} bordered pagination={false}/> 
+                    columns={state.columns.columnsClass} bordered pagination={false}/> 
+                <Button onClick={this.go_back}>返回</Button>
             </div>    
         )
     }

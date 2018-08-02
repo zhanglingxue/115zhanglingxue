@@ -48,6 +48,17 @@ function fetchClassInfo(id) {
   }
 }
 
+function fetchSatisfiledList(mid) {
+  return {
+    SERVER_API: {
+      type: actionTypes.FETCH_SATISFILED_LIST,
+      endpoint: '/getSatisfiledList',
+      params: {
+        mid
+      }
+    }
+  }
+}
 
 function fetchChanceStudentList(mid) {
   return {
@@ -55,10 +66,21 @@ function fetchChanceStudentList(mid) {
     mid
   }
 }
+
+function fetChangeStatus(idx) {
+  return {
+    type: actionTypes.FETCH_CHANGE_STATUS,
+    idx
+  }
+}
+
+
 export {
     fetchUserInfo,
     fetchLessonInfo,
     fetchStudentList,
     fetchClassInfo,
-    fetchChanceStudentList
+    fetchChanceStudentList,
+    fetchSatisfiledList,
+    fetChangeStatus,
 }
