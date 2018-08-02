@@ -1,12 +1,8 @@
-import React from 'react';
-import { Icon } from 'antd'
 import '../../components/op/op.css'
 import * as actionTypes from "../../const/OpActionTypes.js";
 
 const initState = {
     dataSource: [], 
-    
-      
 };
 
 export default function todoList(state = initState, action) {

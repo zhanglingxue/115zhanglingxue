@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'antd'
 import './ButtonBox.css';
 
-export default class ButtonBox extends Component {
+export default class ButtonSat extends Component {
     go_back = () =>{
         const { state } = this.props;
         state.router.goBack()
