@@ -1,7 +1,6 @@
 import React from 'react'
 import { Avatar,Icon } from 'antd'
 import '../../components/op/op.css'
-const icon = require('../../img/error.png')
 
 const init_state = {
     columns:[{

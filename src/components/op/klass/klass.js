@@ -7,7 +7,6 @@ export default class Klass extends Component {
     render() {
         const { state} = this.props;
         const content = state.onTimeClass.classInfo.basic_info;
-        console.log(state)
         return (
             <div className='student_cont'>
                 <div>
