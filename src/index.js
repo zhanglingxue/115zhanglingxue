@@ -15,8 +15,8 @@ const routes = [{
     indexRoute: { component: UserInfo },
     childRoutes: [
         { path: 'userInfo', component: UserInfo },
-        { path: 'op', component: Op },
-        { path: 'classInfo', component: ClassInfo },
+        { path: 'op/123', component: Op },
+        { path: 'classInfo/222', component: ClassInfo },
       
     ]
 }]

@@ -16,7 +16,7 @@ export default class ButtonBox extends Component {
                     <Button className='gray_button'>摄影课</Button>
                     <Button>绘画课</Button>
                 </div>
-                <div className='right_button'>
+                <div className='rightButton'>
                     <Button onClick={this.go_back}>返回</Button>
                 </div>
             </div>

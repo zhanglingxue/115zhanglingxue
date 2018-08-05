@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tabs } from 'antd'
+import { Tabs,Button } from 'antd'
 import ButtonBox from '../buttonBox/ButtonBox'
 import ButtonSat from '../buttonBox/ButtonSat'
 import Tables from '../tables/Tables'

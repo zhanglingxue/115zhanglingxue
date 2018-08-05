@@ -31,7 +31,7 @@ export default class TopBar extends Component {
                     <Button className='gray_button'>摄影课</Button>
                     <Button>绘画课</Button>
                 </div>
-                <div className='right_button'>
+                <div className='rightButton'>
                     <InputGroup compact>
                         <Select defaultValue="mid">
                             <Option value="mid">mid</Option>

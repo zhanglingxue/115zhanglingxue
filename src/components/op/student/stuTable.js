@@ -18,7 +18,7 @@ export default class StuTable extends Component {
                 dataIndex: 'nick',
                 key: 'nick',
                 align:'center',
-                render:text => <div><Link to='/op'>{text}</Link></div>
+                // render:text => <div><Link to='/op'>{text}</Link></div>
             }, {
                 title: '学员编号MID',
                 dataIndex: 'mid',
@@ -28,26 +28,22 @@ export default class StuTable extends Component {
                 title: '入学时间',
                 dataIndex: 'enter_time',
                 key: 'enter_time',
-                align:'center',
-                
+                align:'center',            
             },{
                 title: '开课时间',
                 dataIndex: 'start_time',
                 key: 'start_time',
-                align:'center',
-                
+                align:'center',           
             },{
                 title: '在学课程',
                 dataIndex: 'learning_lessons',
                 key: 'learning_lessons',
-                align:'center',
-                
+                align:'center',          
             },{
                 title: '负责老师',
                 dataIndex: 'teachers',
                 key: 'teachers',
-                align:'center',
-                
+                align:'center',        
             }],
         }
     }
@@ -56,8 +52,14 @@ export default class StuTable extends Component {
         return (
             <div className='button_setting'>
                 <Table dataSource={state.userState.studentInfo.data}
-                columns={this.state.columns}
-                bordered pagination={false}/>    
+                    columns={this.state.columns}
+                    bordered pagination={false}
+                    onRow={(record,index) => {             
+                        return {
+                            onClick: () => {
+                                state.router.push('/op/123')
+                            },     
+                        }}} />    
             </div>   
         )
     }

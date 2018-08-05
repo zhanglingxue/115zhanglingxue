@@ -13,7 +13,7 @@ export default class Tables extends Component {
                 dataIndex: 'classInfo.name',
                 key: 'classInfo.id',
                 align:'center',
-                render:text => <div><Link to='/classInfo'><Icon type="exclamation" />{text}</Link></div>
+                render:text => <div><Link to='/classInfo/222'><Icon type="exclamation" />{text}</Link></div>
             }, {
                 title: '课程状态',
                 dataIndex: 'status',
