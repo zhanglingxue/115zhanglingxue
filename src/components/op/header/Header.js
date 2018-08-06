@@ -12,7 +12,7 @@ export default class Header extends Component {
                 <Row>
                     <Col span={7} >
                         <div className='list_user' >
-                            学员编号：MID330930115
+                            学员编号：{state.params.id}
                         </div>
                     </Col>
                     <Col span={7} >

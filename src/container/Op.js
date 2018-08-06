@@ -8,7 +8,7 @@ import '../components/op/op.css'
 
 class Op extends Component {
     componentDidMount = () =>{
-        const mid = 33090002;
+        const mid = this.props.params.id;
         const { todoActions } =this.props;
         todoActions.fetchUserInfo(mid);
         todoActions.fetchLessonInfo(mid);

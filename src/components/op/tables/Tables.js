@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table,Icon,Popover } from 'antd'
-import { Link } from 'react-router'
+import { IndexLink } from 'react-router'
 import './Tables.css';
 
 export default class Tables extends Component {
@@ -13,7 +13,12 @@ export default class Tables extends Component {
                 dataIndex: 'classInfo.name',
                 key: 'classInfo.id',
                 align:'center',
-                render:text => <div><Link to='/classInfo/222'><Icon type="exclamation" />{text}</Link></div>
+                render:(text,record) => 
+                    <div>
+                        <IndexLink  to={`/classInfo/${record.id}`}>
+                            <Icon type="exclamation" />{text}
+                        </IndexLink>
+                    </div>
             }, {
                 title: '课程状态',
                 dataIndex: 'status',
@@ -137,7 +142,6 @@ export default class Tables extends Component {
 
     render() {
         const { state } = this.props;
-
         return (
             <div>
                 <div className='title_table'>

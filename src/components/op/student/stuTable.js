@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table,Avatar } from 'antd'
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 import './student.css'
 
 export default class StuTable extends Component {
@@ -18,7 +18,6 @@ export default class StuTable extends Component {
                 dataIndex: 'nick',
                 key: 'nick',
                 align:'center',
-                // render:text => <div><Link to='/op'>{text}</Link></div>
             }, {
                 title: '学员编号MID',
                 dataIndex: 'mid',
@@ -54,10 +53,10 @@ export default class StuTable extends Component {
                 <Table dataSource={state.userState.studentInfo.data}
                     columns={this.state.columns}
                     bordered pagination={false}
-                    onRow={(record,index) => {             
+                    onRow={(record,index) => {      
                         return {
                             onClick: () => {
-                                state.router.push('/op/123')
+                                browserHistory.push(`op/${record.mid}`)
                             },     
                         }}} />    
             </div>   

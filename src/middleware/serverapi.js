@@ -49,7 +49,7 @@ export default store => next => action => {
         next({
             type: `${type}_SUC`,
             response: res.data,
-            mid:res.config
+            // mid:res.config
         });
     }).catch(err => {
         next({
