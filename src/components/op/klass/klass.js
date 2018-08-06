@@ -90,6 +90,13 @@ export default class Klass extends Component {
     render() {
         const { state} = this.props;
         const content = state.onTimeClass.classInfo.basic_info;
+        const list = state.onTimeClass.classInfo.basic_info.list;
+        let newList;
+        if(list){
+            newList = list.result.map(t => {
+                return list.entities.basicInfo[t];
+            })
+        }
         return (
             <div className='student_cont'>
                 <div>
@@ -101,7 +108,7 @@ export default class Klass extends Component {
                     /ID:{content.real_teacher.mid}/微信:{content.real_teacher.wx_code}</p>
                     <Button onClick={this.go_back}>返回</Button>
                 </div>
-                <Table dataSource={state.onTimeClass.classInfo.list}
+                <Table dataSource={newList}
                     columns={this.state.columnsClass} bordered pagination={false}/> 
                 
             </div>    

@@ -1,4 +1,6 @@
 import * as actionTypes from "../../const/OpActionTypes.js";
+import { normalize } from 'normalizr';
+import * as schemes from '../../schema'
 
 function fetchUserInfo(mid) {
   return {
@@ -19,6 +21,14 @@ function fetchLessonInfo(mid) {
       endpoint: '/getLessonInfo',
       params: {
         mid
+      },
+      normailzerFun:response => {
+        const current = normalize(response.data.currentLessonsList, schemes.CLASSINFO);
+        const history = normalize(response.data.historyLessonsList, schemes.CLASSINFO);
+        return {
+          current,
+          history
+        }
       }
     }
   }
@@ -31,7 +41,8 @@ function fetchStudentList(mid) {
       endpoint: '/getStudentList',
       params: {
         mid
-      }
+      },
+      normailzerFun:response => normalize(response.data, schemes.STUDENTLIST),
     }
   }
 }
@@ -43,7 +54,14 @@ function fetchClassInfo(id) {
       endpoint: '/getClassInfo',
       params: {
         id
-      }
+      },
+      normailzerFun:response =>{ 
+        const list = normalize(response.data.list, schemes.BASICINFO)
+        return {
+          ...response.data.basic_info,
+          list
+        }
+      } 
     }
   }
 }
@@ -55,7 +73,8 @@ function fetchSatisfiledList(mid) {
       endpoint: '/getSatisfiledList',
       params: {
         mid
-      }
+      },
+      normailzerFun:response => normalize(response.data.list, schemes.SATISFILEDLIST),
     }
   }
 }

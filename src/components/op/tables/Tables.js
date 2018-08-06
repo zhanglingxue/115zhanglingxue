@@ -142,17 +142,40 @@ export default class Tables extends Component {
 
     render() {
         const { state } = this.props;
+        const list = state.onTimeClass.dataSource;
+        const list_his = state.historyNum;
+        let newcurrentList,newHistoryList;
+        if(list.result) {
+            newcurrentList = list.result.map(t => {
+                const currInfo = list.entities.classInfo[t];
+                return {
+                    ...currInfo,
+                    teacherInfo:list.entities.teachers[currInfo.teacherInfo],
+                    classInfo: list.entities.classes[currInfo.classInfo],
+                }
+            })
+        }
+        if(list_his.result) {
+            newHistoryList = list_his.result.map(t => {
+                const listInfo =  list_his.entities.classInfo[t];
+                return {
+                    ...listInfo,
+                    teacherInfo:list_his.entities.teachers[listInfo.teacherInfo],
+                    classInfo: list_his.entities.classes[listInfo.classInfo],
+                }
+            })
+        }
         return (
             <div>
                 <div className='title_table'>
                     <h2>在学课程</h2>
                 </div>
-                <Table dataSource={state.onTimeClass.dataSource}
+                <Table dataSource={newcurrentList}
                     columns={this.state.columns} bordered pagination={false}/>
                 <div className='title_table'>
                     <h2>历史数据</h2>
                 </div>
-                <Table dataSource={state.historyNum.dataSource}
+                <Table dataSource={newHistoryList}
                     columns={this.state.columns} bordered />
             </div>
         )

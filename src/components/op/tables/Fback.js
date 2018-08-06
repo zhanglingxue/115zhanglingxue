@@ -80,9 +80,21 @@ export default class Fback extends Component {
 
     render() {
         const { state } = this.props;
+        const list = state.onTimeClass.list;
+        let newList;
+        if(list.result){
+            newList = list.result.map(t => {
+                const satisfiled = list.entities.satisfiled[t];
+                return {
+                    ...satisfiled,
+                    class_info: list.entities.classes[satisfiled.class_info],
+                    teacher_info: list.entities.teachers[satisfiled.teacher_info]
+                  }
+            })
+        }
         return (
             <div>
-                <Table dataSource={state.onTimeClass.list} 
+                <Table dataSource={newList} 
                 columns={this.state.columns} bordered />
             </div>
         )

@@ -14,8 +14,8 @@ const initState = {
         lastLoginDate:'',
         remark:'',
     },
-    studentInfo:{
-        data:[{
+    list:{
+        studentInfo:[{
             enter_time:'',
             hurl:'',
             mid:'',
@@ -23,8 +23,10 @@ const initState = {
             nick:'',
             teachers:'',
             start_time:'',
-        }]
-    },
+        }],
+        result:[]
+    }
+    
 };
 
 export default function todoList(state = initState, action) {
@@ -38,19 +40,19 @@ export default function todoList(state = initState, action) {
             return newState;
         case b:
             const newState1 = {...state};
-            newState1.studentInfo = action.response;
+            newState1.list = action.response;
             return newState1;
         case c:
             const ChanceState = {...state};
-            const temp = ChanceState.studentInfo.data.slice();
+            const temp = ChanceState.list.result.slice();
             const mid = parseFloat(action.mid);
             let newArr = []
             for(let i in temp){
-                if(temp[i].mid === mid){
+                if(temp[i] === mid){
                     newArr.push(temp[i])
                 }
             }
-            ChanceState.studentInfo.data = newArr;
+            ChanceState.list.result = newArr;
             return ChanceState;
         default:
             return state;

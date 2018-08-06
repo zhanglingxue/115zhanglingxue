@@ -28,7 +28,8 @@ export default store => next => action => {
     const {
         type,
         endpoint,
-        params
+        params,
+        normailzerFun
     } = action.SERVER_API;
     if (typeof type !== 'string') {
         throw new Error('type shoudle be a string');
@@ -46,10 +47,10 @@ export default store => next => action => {
 
     return callServerApi(endpoint, params)
     .then(res => {
+        const response = typeof (normailzerFun) !== 'undefined' ? normailzerFun(res.data) : res.data;
         next({
             type: `${type}_SUC`,
-            response: res.data,
-            // mid:res.config
+            response: response,
         });
     }).catch(err => {
         next({

@@ -48,9 +48,19 @@ export default class StuTable extends Component {
     }
     render() {
         const { state } = this.props;
+        const list = state.userState.list;
+        let newList;
+        if(list){
+            newList = list.result.map(t =>{
+                const studentList = list.entities.studentList[t];
+                return {
+                    ...studentList,
+                }
+            })
+        }
         return (
             <div className='button_setting'>
-                <Table dataSource={state.userState.studentInfo.data}
+                <Table dataSource={newList}
                     columns={this.state.columns}
                     bordered pagination={false}
                     onRow={(record,index) => {      
