@@ -72,7 +72,7 @@ export default class Klass extends Component {
                 key: 'satisfied_score',
                 align:'center',
                 render:text =>{
-                    if(text !== 5){
+                    if(text === 5){
                         return <div>{text}</div>
                     }else{
                         return <div className='color_font'>{text}</div>
@@ -99,10 +99,11 @@ export default class Klass extends Component {
                     /ID:{content.virtual_teacher.id}/微信:{content.virtual_teacher.wx_code}</p>
                     <p className='title_style'>负责员工:{content.real_teacher.name}
                     /ID:{content.real_teacher.mid}/微信:{content.real_teacher.wx_code}</p>
+                    <Button onClick={this.go_back}>返回</Button>
                 </div>
                 <Table dataSource={state.onTimeClass.classInfo.list}
                     columns={this.state.columnsClass} bordered pagination={false}/> 
-                <Button onClick={this.go_back}>返回</Button>
+                
             </div>    
         )
     }
