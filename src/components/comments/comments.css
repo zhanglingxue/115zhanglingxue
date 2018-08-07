@@ -1,0 +1,91 @@
+.todo-ctn{
+    width: 80%;
+    margin-left:10%;
+    border: 1px solid #e0e0e0;
+}
+.ant-tabs-bar{
+    margin: 0 !important;
+}
+.recivewDiv{
+    height: 500px;
+    overflow:auto;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+.tabTop{
+    height:40px;
+}
+.myBack{
+    float: left;
+    margin-right:20px;
+    margin-left:500px;
+}
+.selectInput{
+    float: left;
+}
+.chanceTab{
+    /* border:1px solid gray; */
+    height:100px;
+}
+.contentDiv{
+    height:60px;
+    border-bottom:1px solid #e0e0e0;
+}
+.imgsAllShow{
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid #e0e0e0; */
+}
+.imgsAllShow img{
+    width: 18%;
+    margin-left: 1%;
+}
+.authorContent{
+    float: left;
+    margin-left: 5px;
+}
+.leftImg{
+    height: 300px;
+}
+.imgDiv{
+    margin-top: 20px;
+    border-bottom: 1px solid #e0e0e0;  
+}
+
+.commTime{
+    float: right;
+}
+.homeworkContent span{
+    margin-right: 10px;
+}
+
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 300px;
+    line-height: 300px;
+    overflow: hidden;
+}
+
+.submitDiv { 
+    /* border: 1px solid #e0e0e0; */
+    height:100px;
+}
+.submitInput{
+    float: left;
+    width: 80%;
+}
+  
+.commmentcontent{
+    border-bottom: 1px solid #e0e0e0;
+}
+.message_back{
+    color:red;
+}
+.my_comm_cont{
+    height: 500px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.imgStyles{
+    width:138px;
+    height:208px;
+}

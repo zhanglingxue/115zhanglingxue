@@ -1,0 +1,2 @@
+export const FETCH_HOME_WORK = 'FETCH_HOME_WORK'
+export const FETCH_COMMENT = 'FETCH_COMMENT'
