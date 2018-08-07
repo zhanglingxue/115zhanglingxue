@@ -24,8 +24,6 @@ function classes (state = {},action){
     }
 }
 
-
-
 function teachers (state = {},action){
     switch(action.type){
         case `${actionTypes.FETCH_SATISFILED_LIST}_SUC`: {
@@ -48,6 +46,7 @@ function teachers (state = {},action){
             return state;
     }
 }
+
 function student (state={},action) {
     switch(action.type){
         case `${actionTypes.FETCH_STUDENT_LIST}_SUC`: {
@@ -55,6 +54,20 @@ function student (state={},action) {
             return {
                 ...state,
                 ...entities.studentList
+            };
+        }
+        default:
+            return state;
+    }
+}
+
+function lesson (state={},action) {
+    switch(action.type){
+        case `${actionTypes.FETCH_CLASS_INFO}_SUC`: {
+            const entities =  action.response.list.entities
+            return {
+                ...state,
+                ...entities.basicInfo
             };
         }
         default:
@@ -70,6 +83,11 @@ function satisfiled (state = {},action){
                 ...state,
                 ...entities.satisfiled
             };
+        }
+        case actionTypes.FETCH_CHANGE_STATUS: {
+            const newState2 = {...state};
+            newState2[action.time].reply_status = 1;
+            return newState2;
         }
         default:
             return state;
@@ -97,5 +115,6 @@ export default combineReducers({
   teachers,
   satisfiled,
   student,
-  classInfo
+  classInfo,
+  lesson
 });

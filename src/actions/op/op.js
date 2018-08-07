@@ -57,8 +57,10 @@ function fetchClassInfo(id) {
       },
       normailzerFun:response =>{ 
         const list = normalize(response.data.list, schemes.BASICINFO)
+        const basic_info = response.data.basic_info
+        console.log(response.data.basic_info)
         return {
-          ...response.data.basic_info,
+          basic_info,
           list
         }
       } 

@@ -84,17 +84,16 @@ export default class Klass extends Component {
     go_back = () =>{
         const { state } = this.props;
         state.router.goBack();
-
     }
 
     render() {
         const { state} = this.props;
         const content = state.onTimeClass.classInfo.basic_info;
-        const list = state.onTimeClass.classInfo.basic_info.list;
+        const list = state.onTimeClass.classInfo.list;
         let newList;
         if(list){
-            newList = list.result.map(t => {
-                return list.entities.basicInfo[t];
+            newList = list.map(t => {
+                return state.entities.lesson[t];
             })
         }
         return (

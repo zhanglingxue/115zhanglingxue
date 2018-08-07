@@ -15,12 +15,9 @@ const initState = {
                 id:'',
                 nick:'',
                 wx_code:''
-            },
-            list:{
-                entities:{},
-                result:[]
-            }
+            }   
         },
+        list:[]
         
     },
     list:{
@@ -40,18 +37,14 @@ export default function todoList(state = initState, action) {
         }    
         case b: {
             const newState1 = {...state};
-            newState1.classInfo.basic_info = action.response;
+            newState1.classInfo.basic_info = action.response.basic_info;
+            newState1.classInfo.list = action.response.list.result;
             return newState1;
         }
         case c: {
             const newStateC = {...state};
             newStateC.list.result = action.response.result;
             return newStateC;
-        }
-        case actionTypes.FETCH_CHANGE_STATUS: {
-            const newState2 = {...state};
-            newState2.list.entities.satisfiled[action.time].reply_status = 1;
-            return newState2;
         }
         default:
             return state;
