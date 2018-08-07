@@ -13,8 +13,8 @@ export default class AllNoReview extends Component {
                         <span>{idx.nick}mid:{idx.mid}</span>
                         <span className='commTime'>{idx.time}</span>
                         <p>{idx.content}</p>
-    
                     </div>
+                    
                 )
             }else if(idx.status === 'reject'){
                 return (

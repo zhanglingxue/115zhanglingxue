@@ -8,9 +8,13 @@
 }
 .recivewDiv{
     height: 500px;
-    overflow:auto;
+    
     border-bottom: 1px solid #e0e0e0;
     border-right: 1px solid #e0e0e0;
+}
+.commentList{
+    height: 500px;
+    overflow:auto;
 }
 .tabTop{
     height:40px;
@@ -18,7 +22,7 @@
 .myBack{
     float: left;
     margin-right:20px;
-    margin-left:500px;
+    
 }
 .selectInput{
     float: left;

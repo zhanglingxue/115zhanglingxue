@@ -12,7 +12,11 @@ class noReview extends Component {
     componentDidMount = () =>{
         const { todoActions } =this.props;
         const isReviewed = 0;
-        todoActions.fetchHomeWorkInfo(isReviewed)
+        const token = 0;
+        todoActions.fetchHomeWorkInfo(0,0);
+        todoActions.fetchMyComment(1,1); 
+        todoActions.fetchAllnoComment(1,0); 
+        todoActions.fetchAllComment(0,1); 
     }
 
     render() {
@@ -30,10 +34,14 @@ class noReview extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const {imgReducer,entities } = state;
+    const {imgReducer,entities,myReducer,noCommentReducer,allComment } = state;
     return {
         imgReducer,
-        entities
+        entities,
+        myReducer,
+        noCommentReducer,
+        allComment
+
     };
 }
 function mapDispatchToProps(dispatch) {

@@ -57,9 +57,54 @@ function postData (state = {},action){
     }
 }
 
+function myComment (state = {},action){
+    switch(action.type){
+        case `${actionTypes.FETCH_HOME_WORK_COMMENT}_SUC`: {
+            const entities =  action.response.entities
+            return {
+                ...state,
+                ...entities.myComment
+            };
+        }
+        default:
+            return state;
+    }
+}
+
+function noComment (state = {},action){
+    switch(action.type){
+        case `${actionTypes.FETCH_ALL_NO_COMMENT}_SUC`: {
+            const entities =  action.response.entities
+            return {
+                ...state,
+                ...entities.noComment
+            };
+        }
+        default:
+            return state;
+    }
+}
+
+function allComment (state = {},action){
+    switch(action.type){
+        case `${actionTypes.FETCH_ALL_COMMENT}_SUC`: {
+            const entities =  action.response.entities
+            return {
+                ...state,
+                ...entities.allComment
+            };
+        }
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
   classes,
   teachers,
   author,
-  postData
+  postData,
+  myComment,
+  noComment,
+  allComment
 });

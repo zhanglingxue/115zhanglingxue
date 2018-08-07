@@ -9,14 +9,14 @@ import { Col,Row } from 'antd/lib/grid';
 export default class ReviewCont extends Component {
     
     handerDiv = () =>{
-        const { state } = this.props;
-        let newList ;
-        if(state.imgReducer) {
-            newList = state.imgReducer.map(idx => {
-                return state.entities.postData[idx];
-            })
-        }
-        return newList.map(item => {
+        const { newListAll,state } = this.props;
+        // let newList ;
+        // if(state.imgReducer) {
+        //     newList = state.imgReducer.map(idx => {
+        //         return state.entities.postData[idx];
+        //     })
+        // }
+        return newListAll.map(item => {
             return (
                 <div className='recivewDiv'>
                     <Row>
@@ -31,8 +31,8 @@ export default class ReviewCont extends Component {
                                 <Reply item={item} state={state}/>
                             </div>
                         </Col>
-                        <Col span={6}>
-                            <div>
+                        <Col span={6} className='commentList'>
+                            <div >
                                 <AllNoReview item={item}/>
                             </div>
                         </Col>

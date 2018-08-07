@@ -22,10 +22,8 @@ export default class ReviewCont extends Component {
                             {state.entities.author[item.author].nick}mid:{state.entities.author[item.author].mid}
                         </span>
                         <span>
-                            {state.entities.classes[item.classInfo].name} 
-                        </span>
-                        <span>
-                            {state.entities.teachers[item.teacherInfo].nick}
+                            {state.entities.classes[item.classInfo].name}|
+                            {state.entities.teachers[item.teacherInfo].nick} 
                         </span>
                         <span>
                             点评人:{item.commentator}
@@ -36,7 +34,8 @@ export default class ReviewCont extends Component {
                     </div>
                 </div>
                 <div className='authorContent'>
-                    佳作:<Switch defaultChecked onChange={this.onChange} />
+                    <span>佳作</span>
+                    <Switch defaultChecked onChange={this.onChange} />
                 </div>
             </div>   
         )
