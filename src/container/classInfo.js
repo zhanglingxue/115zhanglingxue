@@ -26,12 +26,13 @@ class Op extends Component {
 function mapStateToProps(state, ownProps) {
     const { historyNum,
         onTimeClass,
-        userState,columns } = state;
+        userState,
+        entities } = state;
     return {
         historyNum,
         onTimeClass,
         userState,
-        columns
+        entities
     };
 }
 function mapDispatchToProps(dispatch) {

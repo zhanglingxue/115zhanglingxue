@@ -15,18 +15,8 @@ const initState = {
         remark:'',
     },
     list:{
-        studentInfo:[{
-            enter_time:'',
-            hurl:'',
-            mid:'',
-            learning_lessons:[],
-            nick:'',
-            teachers:'',
-            start_time:'',
-        }],
         result:[]
-    }
-    
+    }   
 };
 
 export default function todoList(state = initState, action) {
@@ -40,7 +30,7 @@ export default function todoList(state = initState, action) {
             return newState;
         case b:
             const newState1 = {...state};
-            newState1.list = action.response;
+            newState1.list.result = action.response.result;
             return newState1;
         case c:
             const ChanceState = {...state};

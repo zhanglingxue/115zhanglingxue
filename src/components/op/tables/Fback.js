@@ -61,7 +61,7 @@ export default class Fback extends Component {
                     align:'center', 
                     render:(text,record,index) =>{
                         if(text === 0){
-                            return <div onClick={this.handerClick.bind(this,index)}>
+                            return <div onClick={this.handerClick.bind(this,record)}>
                                         待回复<Icon type="printer" />
                                     </div>
                         }else{
@@ -73,9 +73,9 @@ export default class Fback extends Component {
         }
     }
 
-    handerClick = (idx) =>{
+    handerClick = (record) =>{
         const { todoActions } = this.props;
-        todoActions.fetChangeStatus(idx);
+        todoActions.fetChangeStatus(record.time);
     }
 
     render() {
@@ -84,11 +84,11 @@ export default class Fback extends Component {
         let newList;
         if(list.result){
             newList = list.result.map(t => {
-                const satisfiled = list.entities.satisfiled[t];
+                const satisfiled = state.entities.satisfiled[t];
                 return {
                     ...satisfiled,
-                    class_info: list.entities.classes[satisfiled.class_info],
-                    teacher_info: list.entities.teachers[satisfiled.teacher_info]
+                    class_info: state.entities.classes[satisfiled.class_info],
+                    teacher_info: state.entities.teachers[satisfiled.teacher_info]
                   }
             })
         }

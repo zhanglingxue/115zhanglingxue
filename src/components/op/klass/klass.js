@@ -83,7 +83,7 @@ export default class Klass extends Component {
     }
     go_back = () =>{
         const { state } = this.props;
-        state.router.goBack()
+        state.router.goBack();
 
     }
 
@@ -108,9 +108,8 @@ export default class Klass extends Component {
                     /ID:{content.real_teacher.mid}/微信:{content.real_teacher.wx_code}</p>
                     <Button onClick={this.go_back}>返回</Button>
                 </div>
-                <Table dataSource={newList}
+                <Table dataSource={newList} 
                     columns={this.state.columnsClass} bordered pagination={false}/> 
-                
             </div>    
         )
     }

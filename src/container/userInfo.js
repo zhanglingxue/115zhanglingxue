@@ -27,11 +27,13 @@ class Op extends Component {
 function mapStateToProps(state, ownProps) {
     const { historyNum,
         onTimeClass,
-        userState } = state;
+        userState,
+        entities } = state;
     return {
         historyNum,
         onTimeClass,
         userState,
+        entities
     };
 }
 function mapDispatchToProps(dispatch) {

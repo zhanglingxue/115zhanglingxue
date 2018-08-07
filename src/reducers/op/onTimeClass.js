@@ -1,10 +1,7 @@
 import * as actionTypes from "../../const/OpActionTypes.js";
 
 const initState = {
-    dataSource: {
-        entities:{},
-        result:[]
-    },
+    dataSource: [],
     classInfo:{
         basic_info:{
             id:'',
@@ -27,7 +24,6 @@ const initState = {
         
     },
     list:{
-        entities:{},
         result:[]
     }
 };
@@ -39,25 +35,24 @@ export default function todoList(state = initState, action) {
     switch (action.type) {
         case a: {
             const newState = {...state}; 
-            newState.dataSource = action.response.current;
+            newState.dataSource = action.response.current.result;
             return newState;
         }    
-        case b:{
+        case b: {
             const newState1 = {...state};
             newState1.classInfo.basic_info = action.response;
             return newState1;
         }
-        case c:{
+        case c: {
             const newStateC = {...state};
-            newStateC.list = action.response;
+            newStateC.list.result = action.response.result;
             return newStateC;
         }
-        case actionTypes.FETCH_CHANGE_STATUS:{
+        case actionTypes.FETCH_CHANGE_STATUS: {
             const newState2 = {...state};
-            newState2.list[action.idx].reply_status = 1;
+            newState2.list.entities.satisfiled[action.time].reply_status = 1;
             return newState2;
         }
-
         default:
             return state;
     }

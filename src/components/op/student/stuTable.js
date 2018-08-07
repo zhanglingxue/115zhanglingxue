@@ -52,7 +52,7 @@ export default class StuTable extends Component {
         let newList;
         if(list){
             newList = list.result.map(t =>{
-                const studentList = list.entities.studentList[t];
+                const studentList = state.entities.student[t];
                 return {
                     ...studentList,
                 }
@@ -63,6 +63,7 @@ export default class StuTable extends Component {
                 <Table dataSource={newList}
                     columns={this.state.columns}
                     bordered pagination={false}
+                    rowKey={record=>record.mid}
                     onRow={(record,index) => {      
                         return {
                             onClick: () => {

@@ -86,10 +86,10 @@ function fetchChanceStudentList(mid) {
   }
 }
 
-function fetChangeStatus(idx) {
+function fetChangeStatus(time) {
   return {
     type: actionTypes.FETCH_CHANGE_STATUS,
-    idx
+    time
   }
 }
 
