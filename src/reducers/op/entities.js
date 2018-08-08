@@ -19,6 +19,16 @@ function classes (state = {},action){
                 ...historyEntities.classes
             }
         }
+        case `${actionTypes.FETCH_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_REVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_REVIEWED}_SUC`:{
+            const entities =  action.response.entities;
+            return {
+                ...state,
+                ...entities.classes
+            };
+        }
         default:
             return state;
     }
@@ -40,6 +50,59 @@ function teachers (state = {},action){
                 ...state,
                 ...currentEntities.teachers,
                 ...historyEntities.teachers
+            }
+        }
+        case `${actionTypes.FETCH_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_REVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_REVIEWED}_SUC`: {
+            const entities =  action.response.entities;
+            return {
+                ...state,
+                ...entities.teachers
+            };
+        }
+        default:
+            return state;
+    }
+}
+
+function author (state={},action) {
+    switch(action.type){
+        case `${actionTypes.FETCH_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_REVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_REVIEWED}_SUC`: {
+            const entities =  action.response.entities;
+            return {
+                ...state,
+                ...entities.authors
+            };
+        }
+        default:
+            return state;
+    }
+}
+
+function comments (state={},action) {
+    switch(action.type){
+        case `${actionTypes.FETCH_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_REVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_REVIEWED}_SUC`: {
+            const entities =  action.response.entities;
+            return {
+                ...state,
+                ...entities.comments
+            };
+        }
+
+        case actionTypes.SUBMIT_COMMENT:{
+            let newState = {...state};
+            let mid = action.id;
+            newState[mid] = action.json;
+            return {
+                ...newState,
             }
         }
         default:
@@ -110,11 +173,40 @@ function classInfo (state={},action) {
     }
 }
 
+function postData (state = {},action){
+    switch(action.type){
+        case `${actionTypes.FETCH_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_REVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_UNREVIEWED}_SUC`:
+        case `${actionTypes.FETCH_ALL_REVIEWED}_SUC`: {
+            const entities =  action.response.entities
+            return {
+                ...state,
+                ...entities.postData
+            };
+        }
+        case actionTypes.SUBMIT_COMMENT:{
+            let array = state[action.item].comments;
+            array.push(action.id)
+            state[action.item].comments = array;
+            return {
+                ...state,
+            }
+        }
+        default:
+            return state;
+    }
+}
+
+
 export default combineReducers({
   classes,
   teachers,
   satisfiled,
   student,
   classInfo,
-  lesson
+  lesson,
+  comments,
+  author,
+  postData,
 });

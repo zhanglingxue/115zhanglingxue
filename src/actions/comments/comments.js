@@ -1,11 +1,23 @@
-import * as actionTypes from "../../const/commentSctionType";
+import * as actionTypes from "../../const/OpActionTypes";
 import { normalize } from 'normalizr';
-import * as schemes from '../../schema/comments'
+import * as schemes from '../../schema'
 
-function fetchHomeWorkInfo(token,isReviewed) {
+function fentchPostComment(item) {
+  const token = item.token;
+  const isReviewed = item.isReviewed;
+  let type;
+  if(token === 1 && isReviewed === 0){
+    type = actionTypes.FETCH_UNREVIEWED
+  }else if(token === 1 && isReviewed === 1){
+    type = actionTypes.FETCH_REVIEWED
+  }else if(token === 0 && isReviewed === 0){
+    type = actionTypes.FETCH_ALL_UNREVIEWED
+  }else if(token === 0 && isReviewed === 1){
+    type = actionTypes.FETCH_ALL_REVIEWED
+  }
   return {
     SERVER_API: {
-      type: actionTypes.FETCH_HOME_WORK,
+      type: type,
       endpoint: '/getHomeWork',
       params: {
         token,
@@ -16,59 +28,25 @@ function fetchHomeWorkInfo(token,isReviewed) {
   }
 }
 
-function fetchMyComment(token,isReviewed) {
+function returnComment(idx,item){
   return {
-    SERVER_API: {
-      type: actionTypes.FETCH_HOME_WORK_COMMENT,
-      endpoint: '/getHomeWork',
-      params: {
-        token,
-        isReviewed
-      },
-      normailzerFun:response => normalize(response.data, schemes.MYCOMMENT),
-    }
+    type:actionTypes.RETURN_COMMENT,
+    idx,
+    item
   }
 }
 
-function fetchAllnoComment(token,isReviewed) {
+function submitComment(json,item,id){
   return {
-    SERVER_API: {
-      type: actionTypes.FETCH_ALL_NO_COMMENT,
-      endpoint: '/getHomeWork',
-      params: {
-        token,
-        isReviewed
-      },
-      normailzerFun:response => normalize(response.data, schemes.NOCOMMENT),
-    }
+    type:actionTypes.SUBMIT_COMMENT,
+    json,
+    item,
+    id
   }
 }
 
-function fetchAllComment(token,isReviewed) {
-  return {
-    SERVER_API: {
-      type: actionTypes.FETCH_ALL_COMMENT,
-      endpoint: '/getHomeWork',
-      params: {
-        token,
-        isReviewed
-      },
-      normailzerFun:response => normalize(response.data, schemes.ALLCOMMENT),
-    }
-  }
-}
-
-function fentchComments(idx) {
-  return {
-    type:actionTypes.FETCH_COMMENT,
-    idx
-  }
-}
-  
 export {
-  fetchHomeWorkInfo,
-  fentchComments,
-  fetchMyComment,
-  fetchAllnoComment,
-  fetchAllComment
+  fentchPostComment,
+  returnComment,
+  submitComment
 }

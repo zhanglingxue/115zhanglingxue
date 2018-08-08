@@ -16,20 +16,24 @@
     height: 500px;
     overflow:auto;
 }
+.comments_list{
+    border-bottom: 1px solid #e0e0e0;
+    height: 50px;
+    background: #757882;
+    color: white;
+    line-height: 50px;
+}
 .tabTop{
     height:40px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0
 }
 .myBack{
     float: left;
-    margin-right:20px;
-    
+    margin-right:20px; 
 }
 .selectInput{
     float: left;
-}
-.chanceTab{
-    /* border:1px solid gray; */
-    height:100px;
 }
 .contentDiv{
     height:60px;
@@ -37,11 +41,9 @@
 }
 .imgsAllShow{
     padding-bottom: 10px;
-    /* border-bottom: 1px solid #e0e0e0; */
 }
 .imgsAllShow img{
     width: 18%;
-    margin-left: 1%;
 }
 .authorContent{
     float: left;
@@ -51,7 +53,6 @@
     height: 300px;
 }
 .imgDiv{
-    margin-top: 20px;
     border-bottom: 1px solid #e0e0e0;  
 }
 
@@ -70,7 +71,6 @@
 }
 
 .submitDiv { 
-    /* border: 1px solid #e0e0e0; */
     height:100px;
 }
 .submitInput{
@@ -79,6 +79,7 @@
 }
   
 .commmentcontent{
+    height: 100px;
     border-bottom: 1px solid #e0e0e0;
 }
 .message_back{
@@ -88,8 +89,15 @@
     height: 500px;
     border-right: 1px solid #e0e0e0;
 }
+.comment_content{
+    float: left;
+    width: 70%;
+    overflow: hidden;
+}
+.button_back{
+    float: right;
+}
 
-.imgStyles{
-    width:138px;
-    height:208px;
+.content_all{
+    margin-top: 20px;
 }

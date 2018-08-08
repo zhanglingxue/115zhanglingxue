@@ -5,19 +5,9 @@ import * as comActionTypes from '../../actions/comments/comments.js'
 import { Row,Col } from 'antd'
 import MyReview from '../../components/comments/myReview/MyReview'
 import '../../components/comments/comments.css'
-import todoList from '../../reducers/comments/imgReducer';
 
 
 class noReview extends Component {
-    componentDidMount = () =>{
-        const { todoActions } =this.props;
-        const isReviewed = 0;
-        const token = 0;
-        todoActions.fetchHomeWorkInfo(0,0);
-        todoActions.fetchMyComment(1,1); 
-        todoActions.fetchAllnoComment(1,0); 
-        todoActions.fetchAllComment(0,1); 
-    }
 
     render() {
         const { todoActions } =this.props;
@@ -34,14 +24,13 @@ class noReview extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const {imgReducer,entities,myReducer,noCommentReducer,allComment } = state;
-    return {
-        imgReducer,
+    const {        
         entities,
-        myReducer,
         noCommentReducer,
-        allComment
-
+    } = state;
+    return {
+        entities,
+        noCommentReducer,
     };
 }
 function mapDispatchToProps(dispatch) {
