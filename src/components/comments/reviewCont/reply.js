@@ -17,8 +17,10 @@ export default class Reply extends Component {
 
     commentSubmit = () =>{
         const { state,item,todoActions } = this.props;
-        const array = state.entities.postData[item].comments;
-        const max = Math.max.apply(null, array)
+        const idList = item.comments.map(idx =>{
+            return idx.id;
+        })
+        const max = Math.max.apply(null, idList)
         const json = {
             commentator:{
                 nick:"大白老师",

@@ -5,7 +5,12 @@ import '../comments.css'
 export default class ImgReview extends Component {
     showImg = () =>{
         const { item,state } = this.props;
-        return state.entities.postData[item].photos.map(idx =>{
+        // return state.entities.postData[item].photos.map(idx =>{
+        //     return (
+        //         <img src={idx} className='imgStyles'/>
+        //     )
+        // })
+        return item.photos.map(idx =>{
             return (
                 <img src={idx} className='imgStyles'/>
             )

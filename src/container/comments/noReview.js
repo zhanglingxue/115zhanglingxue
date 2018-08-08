@@ -23,14 +23,57 @@ class noReview extends Component {
     }
 }
 
+const mapEntities = (ids, entity) => {
+    const {
+        classes,
+        teachers,
+        comments,
+        author,
+        postData
+    } = entity;
+    const data = ids.map(id => { //组装
+        const {
+            classInfo: classId,
+            teacherInfo: teacherId,
+            comments: commentIdList,
+            author:authorId
+        } = postData[id];
+        const _comments = commentIdList.map(id => comments[id]);//映射评论
+        return {
+            ...postData[id],
+            classInfo: classes[classId],
+            author:author[authorId],
+            teacherInfo: teachers[teacherId],
+            comments: _comments
+        }
+    })
+    return data;
+}
+
 function mapStateToProps(state, ownProps) {
     const {        
         entities,
-        noCommentReducer,
+        // noCommentReducer,
+        noCommentReducer:{
+            unReviewed,
+            reviewed,
+            allUnReviewed,
+            allReviewed,
+            backArr
+        }
     } = state;
+    const _unReviewed = mapEntities(unReviewed,entities);
+    const _reviewed = mapEntities(reviewed,entities);
+    const _allUnReviewed = mapEntities(allUnReviewed,entities);
+    const _allReviewed = mapEntities(allReviewed,entities)
     return {
-        entities,
-        noCommentReducer,
+        // entities,
+        // noCommentReducer,
+        _unReviewed,
+        _reviewed,
+        _allUnReviewed,
+        _allReviewed,
+        backArr
     };
 }
 function mapDispatchToProps(dispatch) {

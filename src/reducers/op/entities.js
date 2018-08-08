@@ -98,7 +98,7 @@ function comments (state={},action) {
         }
 
         case actionTypes.SUBMIT_COMMENT:{
-            let newState = {...state};
+            let newState = {...state};        
             let mid = action.id;
             newState[mid] = action.json;
             return {
@@ -186,9 +186,10 @@ function postData (state = {},action){
             };
         }
         case actionTypes.SUBMIT_COMMENT:{
-            let array = state[action.item].comments;
+            let array = state[action.item.id].comments;
             array.push(action.id)
-            state[action.item].comments = array;
+            state[action.item.id].comments = array;
+            console.log(state)
             return {
                 ...state,
             }
