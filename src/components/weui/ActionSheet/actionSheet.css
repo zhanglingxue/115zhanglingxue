@@ -43,10 +43,8 @@
     z-index: 100;
     color: #000;
     font-size: 17px;
-    transform: translateY(360%);
+    transform: translateY(100%);
   }
-
-  
   .showandroid {
     transform: translateY(0);
   }

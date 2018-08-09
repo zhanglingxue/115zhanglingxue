@@ -24,7 +24,6 @@ export default class Progress extends React.Component {
           showCancel={this.state.showCancel}
           onCancel={this.handleUpLoad}
         />
-        
       </div>
     );
 }

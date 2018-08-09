@@ -33,7 +33,7 @@ export default class ProgressView extends React.Component {
                         })
                     }
                 </div>   
-                <div onClick={onCancel} className='we_btn_onploy'>上传</div>            
+                <div onClick={onCancel} className='we_btn_onploy'>上传</div>
             </div>
         );
     }

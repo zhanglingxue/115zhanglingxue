@@ -17,10 +17,11 @@
 .progress{
     padding: 0 15px;
     margin-bottom: 20px;
+    padding-top:20px; 
 }
 .progress_div{
     display: flex;
-    margin-top: 20px;
+    margin-bottom: 20px;
     align-items: center;
 }
 .progress_length{
@@ -31,5 +32,6 @@
 }
 .progress_width{
     height: 100%;
+    transition: width .3s ease-in;
     background-color: #09BB07;
 }

@@ -63,30 +63,34 @@ export default class DialogView extends React.Component {
             okText,
             cancelText,
             onOk,
-            onCancel
+            onCancel,
+            isActive
          } = this.props;
-        return (
-            <div className="actionsheetCtn">
-                <div className={this.getMaskClassName()} />
-                <div className={this.getMenuClassName()}>  
-                    {
-                        !title.length
-                        ? null
-                        : <div className={this.getTitleClassName()}>{title}</div>
-                    }
-                    <div className='btn divider renderBody'>{renderBody}</div>
-                    <div className='chance'>  
+        if(isActive){
+            return (
+                <div className="actionsheetCtn">
+                    <div className={this.getMaskClassName()} />
+                    <div className={this.getMenuClassName()}>  
                         {
-                            !cancelText.length
-                            ?null
-                            :<div className={this.getOnCancelClassName()} 
-                                onClick={onCancel}>{cancelText}</div>
+                            !title.length
+                            ? null
+                            : <div className={this.getTitleClassName()}>{title}</div>
                         }
-                        <div className={this.getOnOkClassName()} 
-                            onClick={onOk}>{okText}</div>
+                        <div className='btn divider renderBody'>{renderBody}</div>
+                        <div className='chance'>  
+                            {
+                                !cancelText.length
+                                ?null
+                                :<div className={this.getOnCancelClassName()} 
+                                    onClick={onCancel}>{cancelText}</div>
+                            }
+                            <div className={this.getOnOkClassName()} 
+                                onClick={onOk}>{okText}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }else return null;
+        
     }
 }
