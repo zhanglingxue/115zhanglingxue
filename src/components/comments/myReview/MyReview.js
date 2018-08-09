@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
 import ReviewCont from '../reviewCont/ReviewCont'
 import '../comments.css'
 import { Button,Tabs,Input,Select,AutoComplete  } from 'antd';
@@ -23,6 +24,10 @@ export default class MyReview extends Component {
         this.setState({
             inputValue:'',
         })
+    }
+
+    handleClick = () =>{
+        browserHistory.push(`weui`)
     }
     render() {
         const TabPane = Tabs.TabPane;
@@ -49,7 +54,7 @@ export default class MyReview extends Component {
             <div>
                 <div className='tabTop'>
                     <span >
-                        <Button className='myBack'>我的被退回</Button>
+                        <Button className='myBack' onClick={this.handleClick}>我的被退回</Button>
                     </span>
                     <span >
                         <span className='selectInput'>

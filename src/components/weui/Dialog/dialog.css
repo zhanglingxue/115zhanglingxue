@@ -1,0 +1,97 @@
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .6);
+    transition: opacity .3s ease-in;
+}
+  
+.showMask {
+    opacity: 1;
+    transform: translateY(0);
+}
+  
+.hideMask {
+    opacity: 0;
+    transform: translateY(100%);
+}
+.androidMenu{
+    position: absolute;
+    bottom:40%;
+    left: 15%;
+    right: 15%;
+    box-sizing: border-box;
+    background-color: #EFEFF4;
+    z-index: 100;
+    color: #000;
+    font-size: 17px;
+    transform: translateY(360%);
+}
+
+.showandroid {
+    transform: translateY(0);
+}
+.chance{
+    display: flex;
+}
+.flex{
+    flex:1;
+}
+.btn {
+    background-color: #fff;
+    text-align: center;
+    padding: 12px 10px;
+}
+.renderBody{
+    font-size: 16px;
+    color:#a1a1a1;
+}
+.title1 {
+    background-color: #fff;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 18px;
+}
+.posicenter{
+    text-align: left;
+}
+.divider {
+    position: relative;
+}
+.divider:after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #e5e5e5;
+    transform: scaleY(0.5)
+}
+.btn_right{
+    flex:2;
+    text-align: right;
+}
+.btn_right1{
+    flex:1;
+}
+.okClass{
+    color:green;
+}
+.we_btn{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #F8F8F8;
+    margin-left: 15px;
+    margin-bottom:5px;
+    margin-right: 15px;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2.55555556;
+    border-radius: 5px;
+}

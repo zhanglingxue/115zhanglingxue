@@ -78,3 +78,23 @@ footer{
   background: -webkit-linear-gradient(to right, #4389A2, #5C258D);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #4389A2, #5C258D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+
+
+/* .div{
+  position:relative;
+}
+.div:after{
+  position: absolute;
+  content:'';
+  height: 1px; 
+  bottom:0;
+  left:0;
+  right:0;
+  transform: scaleY(0.5);
+} 
+transion:opacity .3 ease-in;
+transion:transfrom .3 linear;
+transfrom:translateY(100%);
+background:rgba(0,0,0,.6)
+*/

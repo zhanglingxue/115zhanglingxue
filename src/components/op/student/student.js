@@ -10,7 +10,7 @@ export default class Student extends Component {
         return (
             <div className='student_cont'>
                 <TopBar state={state} todoActions={todoActions}/>
-                <StuTable state={state} />  
+                {/* <StuTable state={state} />   */}
             </div>    
         )
     }

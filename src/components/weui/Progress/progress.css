@@ -1,0 +1,35 @@
+.we_btn_onploy{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #1AAD19;
+    color:#FFFFFF;
+    margin-left: 20px;
+    margin-bottom:5px;
+    margin-right: 20px;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2.55555556;
+    border-radius: 5px;
+}
+.progress{
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+.progress_div{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+.progress_length{
+    background-color: #EBEBEB;
+    height: 3px;
+    flex: 1;
+    
+}
+.progress_width{
+    height: 100%;
+    background-color: #09BB07;
+}

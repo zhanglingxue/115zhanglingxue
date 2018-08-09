@@ -14,6 +14,7 @@ class Op extends Component {
 
     render() {
         const { todoActions } = this.props;
+        console.log(this.props)
         return (           
             <div className="todo-ctn">
                 <div className='op_all'>
