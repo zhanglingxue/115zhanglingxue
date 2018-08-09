@@ -189,9 +189,17 @@ function postData (state = {},action){
             let array = state[action.item.id].comments;
             array.push(action.id)
             state[action.item.id].comments = array;
-            console.log(state)
             return {
                 ...state,
+            }
+        }
+        case actionTypes.CHANCE_SWITCH:{
+            return {
+                ...state,
+                [action.id]:{
+                    ...state[action.id],
+                    isExcellent: !state[action.id].isExcellent
+                }
             }
         }
         default:

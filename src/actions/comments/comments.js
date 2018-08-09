@@ -45,8 +45,16 @@ function submitComment(json,item,id){
   }
 }
 
+function fetchChanceSwitch(id){
+  return {
+    type:actionTypes.CHANCE_SWITCH,
+    id
+  }
+}
+
 export {
   fentchPostComment,
   returnComment,
-  submitComment
+  submitComment,
+  fetchChanceSwitch
 }

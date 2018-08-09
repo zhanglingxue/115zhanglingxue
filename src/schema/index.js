@@ -14,14 +14,6 @@ const comments = new schema.Entity('comments',{},{
 })
 const commentSchema = [ comments ]
 
-const satisfiled = new schema.Entity('satisfiled',{
-    class_info:classes,
-    teacher_info:teachers
-},{
-    idAttribute:'time'
-})
-
-
 const postData = new schema.Entity('postData',{
     classInfo:classes,
     author:authors,
@@ -31,7 +23,12 @@ const postData = new schema.Entity('postData',{
     idAttribute:'id'
 })
 
-
+const satisfiled = new schema.Entity('satisfiled',{
+    class_info:classes,
+    teacher_info:teachers
+},{
+    idAttribute:'time'
+})
 const studentList = new schema.Entity('studentList',{},{
     idAttribute:'mid'
 })

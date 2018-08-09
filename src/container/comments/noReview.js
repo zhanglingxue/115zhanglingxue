@@ -36,7 +36,7 @@ const mapEntities = (ids, entity) => {
             classInfo: classId,
             teacherInfo: teacherId,
             comments: commentIdList,
-            author:authorId
+            author:authorId,
         } = postData[id];
         const _comments = commentIdList.map(id => comments[id]);//映射评论
         return {
@@ -53,7 +53,6 @@ const mapEntities = (ids, entity) => {
 function mapStateToProps(state, ownProps) {
     const {        
         entities,
-        // noCommentReducer,
         noCommentReducer:{
             unReviewed,
             reviewed,
@@ -67,8 +66,6 @@ function mapStateToProps(state, ownProps) {
     const _allUnReviewed = mapEntities(allUnReviewed,entities);
     const _allReviewed = mapEntities(allReviewed,entities)
     return {
-        // entities,
-        // noCommentReducer,
         _unReviewed,
         _reviewed,
         _allUnReviewed,
