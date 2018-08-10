@@ -48,7 +48,7 @@ export default class ActionSheet extends React.Component {
 
     render() {
         const { title, menus,type,isActive } = this.props;
-        if(isActive){
+        // if(isActive){
             return (
                 <div className="actionsheetCtn">
                     <div className={this.getMaskClassName()} onClick={this.props.onCancel} />
@@ -78,6 +78,6 @@ export default class ActionSheet extends React.Component {
                     </div>
                 </div>
             );
-        }else return null;
+        // }else return null;
     }
 }
