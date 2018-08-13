@@ -87,6 +87,13 @@ function searchDeleteUser(value){
   }
 }
 
+function chanceClassName(idx){
+  return{
+    type:actionTypes.CHANCE_CLASS_NAME,
+    idx
+  }
+}
+
 export {
   fentchPostComment,
   returnComment,
@@ -97,5 +104,6 @@ export {
   submitUserName,
   deleteArrUser,
   searchName,
-  searchDeleteUser
+  searchDeleteUser,
+  chanceClassName
 }

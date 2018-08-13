@@ -71,5 +71,6 @@
     line-height: 48px;
 }
 .active{
-    background: red;
+    background: #8aae92;
+    color:white;
 }

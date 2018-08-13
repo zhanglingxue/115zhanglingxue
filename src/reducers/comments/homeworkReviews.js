@@ -112,6 +112,7 @@ export default function todoList(state = init_state, action) {
             return newState;
         }
         case actionTypes.SUBMIT_USER_NAME:{
+            
             return {
                 ...state,
                 array:action.item,
@@ -156,6 +157,15 @@ export default function todoList(state = init_state, action) {
                 }
             }
             
+        }
+        case actionTypes.CHANCE_CLASS_NAME:{
+            const newState = {...state};
+            let newUser = {...state.data.user}
+            newUser[action.idx].isSeleted = !newUser[action.idx].isSeleted;
+            newState.data.user = newUser;
+            return {
+                ...newState,
+            }
         }
         default:
             return state;

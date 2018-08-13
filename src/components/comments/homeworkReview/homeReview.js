@@ -14,16 +14,19 @@ export default class homeReviews extends Component {
         }
     }
     checkUser = (idx,event) =>{
+        const { todoActions } = this.props;
         let arr = this.state.array;
         let temp = false;
         for(let i in arr){
             if(arr[i] === idx) {
                 arr.splice(i,1);
+                todoActions.chanceClassName(idx);
                 temp = true;
             } 
         }
         if(!temp){
             arr.push(idx);
+            todoActions.chanceClassName(idx);
         }
         this.setState({
             array:arr,
@@ -148,14 +151,25 @@ export default class homeReviews extends Component {
                         <div className='allUserName'>
                                 {
                                     user.map(idx =>{
-                                        return (
-                                            <div className='userMidCont'>
-                                                <div className={`inner_box`} key={idx} onClick={this.checkUser.bind(this,idx)}>
-                                                    {state.homeworkReviews.data.user[idx].name}
-                                                    mid:{state.homeworkReviews.data.user[idx].mid}
+                                        if(state.homeworkReviews.data.user[idx].isSeleted){
+                                            return (
+                                                <div className='userMidCont'>
+                                                    <div className='inner_box active' key={idx} onClick={this.checkUser.bind(this,idx)}>
+                                                        {state.homeworkReviews.data.user[idx].name}
+                                                        mid:{state.homeworkReviews.data.user[idx].mid}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
+                                            )
+                                        }else{
+                                            return (
+                                                <div className='userMidCont'>
+                                                    <div className='inner_box' key={idx} onClick={this.checkUser.bind(this,idx)}>
+                                                        {state.homeworkReviews.data.user[idx].name}
+                                                        mid:{state.homeworkReviews.data.user[idx].mid}
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
                                     })
                                 }
                         </div>
