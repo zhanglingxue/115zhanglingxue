@@ -32,9 +32,9 @@ export default class DialogView extends React.Component {
     }
     getMenuClassName = () => {
         if (!this.props.isActive) {
-            return 'androidMenu'
+            return 'androidMenu1'
         }
-        return 'androidMenu showandroid';
+        return 'androidMenu1 showandroid1';
     }
 
     getTitleClassName = () =>{
@@ -68,7 +68,7 @@ export default class DialogView extends React.Component {
          } = this.props;
         if(isActive){
             return (
-                <div className="actionsheetCtn">
+                <div className="">
                     <div className={this.getMaskClassName()} />
                     <div className={this.getMenuClassName()}>  
                         {

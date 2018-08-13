@@ -6,7 +6,7 @@ export default class DemoExample extends React.Component {
     isActionSheetActive: false,
     title: '',
     menus: [],
-    type:'',
+    type:'ios',
   };
 
   handleShowActionSheet = () => {

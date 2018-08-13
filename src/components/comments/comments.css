@@ -1,8 +1,9 @@
 .todo-ctn{
     width: 80%;
     margin-left:10%;
-    border: 1px solid #e0e0e0;
+    background: #f7f7f7;
 }
+
 .ant-tabs-bar{
     margin: 0 !important;
 }
@@ -100,4 +101,25 @@
 
 .content_all{
     margin-top: 20px;
+}
+
+.todo-ctn h2{
+    padding: 20px 20px 0 20px;
+}
+.review-cate{
+    padding: 10px;
+    margin: 20px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    display: flex;
+}
+.review-content{
+    flex: 3;
+}
+.right-manage{
+    flex: 1;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
 }

@@ -4,6 +4,7 @@
 }
 .mask {
     position: fixed;
+    z-index: 20;
     top: 0;
     left: 0;
     bottom: 0;
@@ -46,7 +47,7 @@
     z-index: 100;
     color: #000;
     font-size: 17px;
-    transform: translateY(100%);
+    transform: translateY(360%);
   }
   .showandroid {
     transform: translateY(0);

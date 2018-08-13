@@ -17,20 +17,19 @@
     opacity: 0;
     transform: translateY(100%);
 }
-.androidMenu{
+.androidMenu1{
     position: absolute;
     bottom:40%;
     left: 15%;
     right: 15%;
-    box-sizing: border-box;
     background-color: #EFEFF4;
     z-index: 100;
     color: #000;
     font-size: 17px;
-    transform: translateY(360%);
+    transform: translateY(100%);
 }
 
-.showandroid {
+.showandroid1 {
     transform: translateY(0);
 }
 .chance{

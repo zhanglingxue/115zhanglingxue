@@ -1,0 +1,75 @@
+.review_content{
+    background: white;
+    margin: 20px;
+    border: 1px solid #e0e0e0;
+    display: none;
+    transition: transform .3s ease-in;
+}
+.show_review_cont{
+    display: block;
+}
+.contentName{
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.review_management{
+    height: 400px;
+    display: flex;
+}
+.manageUser{
+    flex: 3;
+}
+.directory{
+    flex: 1;
+    overflow: auto;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+.all_manageUser{
+    flex: 2.5;
+}
+.search_and_delete{
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.allSrearch{
+    padding: 10px;
+}
+.chanceUser{
+    height: 344px;
+    overflow: auto;
+}
+.allUserName{
+    height:300px;
+    overflow:auto;
+    border-bottom: 1px solid #e0e0e0;
+}
+.searchAllUserName{
+    width:80%;
+}
+.userMidCont{
+    width:40%;
+    float: left;
+    margin:5px 0 5px 0;
+    margin-left: 6%;
+}
+.userMidCont1{
+    width:30%;
+    float: left;
+    margin:5px 0 5px 0;
+    margin-left: 2.5%;
+}
+.inner_box{
+    padding: 3px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border:1px solid #e0e0e0;
+}
+.sureToSubmit{
+    text-align: right;
+    line-height: 48px;
+}
+.active{
+    background: red;
+}

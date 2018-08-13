@@ -20,18 +20,11 @@ export default class ProgressView extends React.Component {
         return (
             <div>
                 <div className="progress">
-                    {
-                        value.map((item,idx) =>{
-                            const temp = item.percent.split('%');
-                            return(
-                            <div className='progress_div'>
-                                <div className='progress_length'>
-                                    <div className='progress_width' style={{width:`${temp[0]}`+'%'}}></div>
-                                </div>
-                            </div>
-                            )
-                        })
-                    }
+                    <div className='progress_div'>
+                        <div className='progress_length'>
+                            <div className='progress_width' style={{width:`${value}`+'%'}}></div>
+                        </div>
+                    </div>  
                 </div>   
                 <div onClick={onCancel} className='we_btn_onploy'>上传</div>
             </div>

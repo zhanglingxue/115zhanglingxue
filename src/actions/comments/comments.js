@@ -52,9 +52,50 @@ function fetchChanceSwitch(id){
   }
 }
 
+function fetchUserChance(key,selected){
+  return {
+    type:actionTypes.USER_CHANCE,
+    key,
+    selected
+  }
+}
+
+function submitUserName(item){
+  return {
+    type:actionTypes.SUBMIT_USER_NAME,
+    item
+  }
+}
+
+function deleteArrUser(){
+  return {
+    type:actionTypes.DELETE_ARR_USER,
+  }
+}
+
+function searchName(value){
+  return {
+    type:actionTypes.SEARCH_NAME,
+    value
+  }
+}
+
+function searchDeleteUser(value){
+  return{
+    type:actionTypes.SEARCH_DELETE_USER,
+    value
+  }
+}
+
 export {
   fentchPostComment,
   returnComment,
   submitComment,
-  fetchChanceSwitch
+  fetchChanceSwitch,
+
+  fetchUserChance,
+  submitUserName,
+  deleteArrUser,
+  searchName,
+  searchDeleteUser
 }

@@ -7,12 +7,14 @@ import imgReducer from './comments/imgReducer'
 import myReducer from './comments/myReducer'
 import noCommentReducer from './comments/noCommentReducer'
 import allComment from './comments/allComment'
+import homeworkReviews from './comments/homeworkReviews'
 
 
 export default combineReducers({
-    // historyNum,
-    // onTimeClass,
-    // userState,
+    historyNum,
+    onTimeClass,
+    userState,
     entities,
     noCommentReducer,
+    homeworkReviews
 });

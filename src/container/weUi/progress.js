@@ -2,19 +2,26 @@ import React from 'react';
 import ProgressView from '../../components/weui/Progress'
 export default class Progress extends React.Component {
   state = {
-    value:[{percent:'80%'},{percent:'50%'},{percent:'0%'}],
+    value:'50',
     showCancel:true,
   };
 
   handleUpLoad = () => {
+    let temp = 0;
     this.setState({
-      value:[
-        {percent:'100%'},
-        {percent:'100%'},
-        {percent:'100%'}
-      ],
       showCancel:false,
     });
+    setInterval(function(){ 
+      if(temp === 100){
+        return ;
+      }
+      temp += 10;
+      console.log(`'${temp}'`)
+      // this.setState({
+      //   value:`'${temp}'`,
+      // });
+    }, 500);
+    
   }
   render() {
     return (
