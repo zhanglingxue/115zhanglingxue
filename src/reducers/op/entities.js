@@ -208,6 +208,39 @@ function postData (state = {},action){
 }
 
 
+function department (state={
+    101:{id:101,name:'所有部门',child:[1001,1002],},
+    1001:{id:1001,name:'爱启迪集团',child:[100101,100102],},
+    1002:{id:1002,name:'小年糕',child:[100201],},
+    100101:{id:100101,name:'广州分公司',child:[10010101,10010102,10010103],},
+    100102:{id:100102,name:'北京分公司',child:[],},
+    100201:{id:100201,name:'河北分公司',child:[],},
+    10010101:{id:10010101,name:'总经办',child:[],user:[2018003,2018002]},
+    10010102:{id:10010102,name:'财务部',child:[],user:[2018003,2018005,2018001,2018002]},
+    10010103:{id:10010103,name:'产品研发部',child:[1001010301,1001010302,1001010303]},
+    1001010301:{id:1001010301,name:'开发一组',user:[2018001,2018002,2018003]},
+    1001010302:{id:1001010302,name:'开发二组',user:[2018004,2018005,2018002]},
+    1001010303:{id:1001010303,name:'测试组',user:[2018003,2018005,2018001,2018002]},
+},action) {
+    switch(action.type){ 
+        default:
+            return state;
+    }
+}
+
+function user (state={
+    2018001:{mid:2018001,name:'小猫',isSeleted:false,},
+    2018002:{mid:2018002,name:'大狗',isSeleted:false,},
+    2018003:{mid:2018003,name:'大猫',isSeleted:false,},
+    2018004:{mid:2018004,name:'大狗',isSeleted:false,},
+    2018005:{mid:2018005,name:'兔兔',isSeleted:false,},
+},action) {
+    switch(action.type){ 
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
   classes,
   teachers,
@@ -218,4 +251,7 @@ export default combineReducers({
   comments,
   author,
   postData,
+
+  department,
+  user
 });

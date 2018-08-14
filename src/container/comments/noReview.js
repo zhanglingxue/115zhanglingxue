@@ -10,6 +10,7 @@ import '../../components/comments/comments.css'
 class noReview extends Component {
 
     render() {
+        console.log(this.props)
         const { todoActions } =this.props;
         return (
             <div className="todo-ctn">
