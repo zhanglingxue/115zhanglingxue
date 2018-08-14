@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { List, Avatar, Button } from 'antd';
+import { Button } from 'antd';
 import '../comments.css'
 
 export default class AllNoReview extends Component {

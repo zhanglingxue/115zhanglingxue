@@ -15,7 +15,7 @@ export default class ProgressView extends React.Component {
     }
     render() {
         const { 
-           value,showCancel,onCancel
+           value,onCancel
          } = this.props;
         return (
             <div>

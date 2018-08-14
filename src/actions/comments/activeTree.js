@@ -34,7 +34,7 @@ function searchName(value){
 function searchDeleteUser(value){
   return{
     type:actionTypes.SEARCH_DELETE_USER,
-    value
+    value,
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input,Button,Icon,message } from 'antd'
+import { Input,Button,message } from 'antd'
 import '../comments.css'
 
 export default class Reply extends Component {
@@ -19,7 +19,7 @@ export default class Reply extends Component {
         if(!this.state.inputValue){
             message.error('请输入文字');
         }else{
-            const { state,item,todoActions } = this.props;
+            const { item,todoActions } = this.props;
             const idList = item.comments.map(idx =>{
                 return idx.id;
             })

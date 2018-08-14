@@ -46,6 +46,7 @@ export default function todoList(state = init_state, action) {
             }
         }
         case actionTypes.SEARCH_DELETE_USER:{
+            // if()
             return {
                 ...state,
                 array:action.value

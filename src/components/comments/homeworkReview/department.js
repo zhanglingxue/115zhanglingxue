@@ -4,8 +4,7 @@ import TreeView from './treeView'
 import './homeReview.css'
 
 
-export default class homeReviews extends Component {
-
+export default class department extends Component {
     constructor() {
         super();
         this.state = {
@@ -44,6 +43,20 @@ export default class homeReviews extends Component {
             return "inner_box"
         }
     }
+    onSearchName = (value) =>{
+        const { todoActions,state } = this.props;
+        const temp = state.homeworkReviews.user;
+        let arr = [];
+        temp.map(idx =>{
+            if(state.user[idx].name === value){
+                arr.push(idx);
+            }
+        })
+        if(arr.length !==0 ){
+            todoActions.searchName(arr);
+        }
+    }
+    
     render() {
         const { state, todoActions } = this.props;
         const user = state.homeworkReviews.user;
@@ -53,19 +66,7 @@ export default class homeReviews extends Component {
                 <div className='allSrearch'>
                     <Search
                         placeholder="名字"
-                        onSearch={value => {
-                            const { todoActions,state } = this.props;
-                            const temp = state.homeworkReviews.user;
-                            let arr = [];
-                            temp.map(idx =>{
-                                if(state.user[idx].name === value){
-                                    arr.push(idx);
-                                }
-                            })
-                            if(arr.length !==0 ){
-                                todoActions.searchName(arr);
-                            }
-                        }}
+                        onSearch={value => {this.onSearchName(value)}}
                         className='searchAllUserName'
                     />
                 </div>
@@ -73,7 +74,7 @@ export default class homeReviews extends Component {
                 {
                     user.map(idx => {
                         return(
-                            <div className='userMidCont'>
+                            <div className='userMidCont' key={idx}>
                                 <div className={this.chanceClassName(idx)} key={idx} onClick={this.checkUser.bind(this, idx)}>
                                     {state.user[idx].name}
                                     mid:{state.user[idx].mid}

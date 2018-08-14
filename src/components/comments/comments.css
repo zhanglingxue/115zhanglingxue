@@ -1,15 +1,14 @@
 .todo-ctn{
     width: 80%;
+    height: 100%;
     margin-left:10%;
-    background: #f7f7f7;
+    background: #f9f8eb;
 }
-
 .ant-tabs-bar{
     margin: 0 !important;
 }
 .recivewDiv{
-    height: 500px;
-    
+    height: 500px; 
     border-bottom: 1px solid #e0e0e0;
     border-right: 1px solid #e0e0e0;
 }
@@ -83,9 +82,7 @@
     height: 100px;
     border-bottom: 1px solid #e0e0e0;
 }
-.message_back{
-    color:red;
-}
+
 .my_comm_cont{
     height: 500px;
     border-right: 1px solid #e0e0e0;
@@ -111,6 +108,7 @@
     margin: 20px;
     background: white;
     border: 1px solid #e0e0e0;
+    border-radius: 10px;
     display: flex;
 }
 .review-content{

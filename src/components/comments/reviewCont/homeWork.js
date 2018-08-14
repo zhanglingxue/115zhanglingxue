@@ -11,7 +11,7 @@ export default class ReviewCont extends Component {
     }
 
     render() {
-        const { item,state } = this.props;
+        const { item } = this.props;
         return (
             <div className='imgsAllShow'>
                 <div className='authorContent'>

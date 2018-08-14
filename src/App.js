@@ -7,6 +7,7 @@ import { createLogger } from 'redux-logger'
 import serverApi from './middleware/serverapi'
 import { browserHistory,Router } from 'react-router'
 import routes from './routes'
+import TopBarView from './container/leftBar'
 
 const logger = createLogger();
 const store = createStore(
