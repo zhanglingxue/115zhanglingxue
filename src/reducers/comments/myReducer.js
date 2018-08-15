@@ -1,9 +1,8 @@
-import * as actionTypes from "../../const/OpActionTypes";
+// import * as actionTypes from '../../const/OpActionTypes';
 
 export default function todoList(state = [], action) {
-    switch (action.type) {
-        
-        default:
-            return state;
-    }
+  switch (action.type) {
+    default:
+      return state;
+  }
 }

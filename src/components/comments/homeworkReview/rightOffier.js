@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Button, Input,Select,AutoComplete } from 'antd'
-import TreeView from './treeView'
-import './homeReview.css'
+import React, { Component } from 'react';
+import { Button, Input,Select,AutoComplete } from 'antd';
+import TreeView from './treeView';
+import './homeReview.css';
 
 
 export default class rightOffier extends Component {
@@ -24,7 +24,7 @@ export default class rightOffier extends Component {
 
     }
     checkDelete = (idx) =>{
-        let deleArr = this.state.deleteArr;
+        let deleArr = this.state.deleteArr.slice();
         let index = deleArr.indexOf(idx);
         if(index === -1){
             deleArr.push(idx);
@@ -44,7 +44,7 @@ export default class rightOffier extends Component {
     }
     onSearchName = (value) =>{
         const { todoActions,state } = this.props;
-        const temp = state.homeworkReviews.user;
+        const temp = state.homeworkReviews.user.slice();
         let arr = [];
         if(this.state.option === 'name'){
             temp.map(idx =>{
@@ -97,10 +97,10 @@ export default class rightOffier extends Component {
                     level.array.map(idx =>{
                         return (
                             <div className='userMidCont'>
-                                <div className={this.chanceDeleteClassName(idx)} key={idx} onClick={this.checkDelete.bind(this, idx)}>
+                                <Button className={this.chanceDeleteClassName(idx)} key={idx} onClick={this.checkDelete.bind(this, idx)}>
                                     {state.user[idx].name}
                                     mid:{state.user[idx].mid}
-                                </div>
+                                </Button>
                             </div>
                         )
                     })

@@ -1,48 +1,46 @@
-import * as actionTypes from "../../const/OpActionTypes";
-import { normalize } from 'normalizr';
-import * as schemes from '../../schema'
+import * as actionTypes from '../../const/OpActionTypes';
 
-function fetchUserChance(key,selected){
+function fetchUserChance(key, selected) {
   return {
-    type:actionTypes.USER_CHANCE,
+    type: actionTypes.USER_CHANCE,
     key,
     selected
-  }
+  };
 }
 
-function submitUserName(item){
+function submitUserName(item) {
   return {
-    type:actionTypes.SUBMIT_USER_NAME,
+    type: actionTypes.SUBMIT_USER_NAME,
     item
-  }
+  };
 }
 
-function deleteArrUser(item){
+function deleteArrUser(item) {
   return {
-    type:actionTypes.DELETE_ARR_USER,
+    type: actionTypes.DELETE_ARR_USER,
     item
-  }
+  };
 }
 
-function searchName(value){
+function searchName(value) {
   return {
-    type:actionTypes.SEARCH_NAME,
+    type: actionTypes.SEARCH_NAME,
     value
-  }
+  };
 }
 
-function searchDeleteUser(value){
-  return{
-    type:actionTypes.SEARCH_DELETE_USER,
-    value,
-  }
+function searchDeleteUser(value) {
+  return {
+    type: actionTypes.SEARCH_DELETE_USER,
+    value
+  };
 }
 
-function chanceClassName(idx){
-  return{
-    type:actionTypes.CHANCE_CLASS_NAME,
+function chanceClassName(idx) {
+  return {
+    type: actionTypes.CHANCE_CLASS_NAME,
     idx
-  }
+  };
 }
 
 export {
@@ -52,4 +50,4 @@ export {
   searchName,
   searchDeleteUser,
   chanceClassName
-}
+};

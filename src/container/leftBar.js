@@ -1,19 +1,12 @@
-import React, { Component } from 'react'
-import { Menu, Icon } from 'antd';
-import './index.css'
-
-
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+import React, { Component } from 'react';
+import './index.css';
 
 class LeftBar extends Component {
-    render() {
-        return (
-            <div className='leftBarClass'>
-                 
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="leftBarClass" />
+    );
+  }
 }
 
 export default LeftBar;

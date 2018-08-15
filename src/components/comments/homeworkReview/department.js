@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
-import { Button, Input } from 'antd'
-import TreeView from './treeView'
-import './homeReview.css'
+import React, { Component } from 'react';
+import { Button, Input } from 'antd';
+import TreeView from './treeView';
+import './homeReview.css';
 
-
+//待解决：
+//搜索為空時显示全部元素(搜索时将搜索id存在state，渲染时用state过滤)
+//点击确定后选中的user变为不可点，左边删除后右边不可点变为可点(用到user的isSeleted状态)
 export default class department extends Component {
     constructor() {
         super();
         this.state = {
-            selectedKeys: '',
-            selected: false,
             array: [],
-            deleteArr:[],
         }
     }
     checkUser = (idx) => {
@@ -45,7 +44,7 @@ export default class department extends Component {
     }
     onSearchName = (value) =>{
         const { todoActions,state } = this.props;
-        const temp = state.homeworkReviews.user;
+        const temp = state.homeworkReviews.user.slice();
         let arr = [];
         temp.map(idx =>{
             if(state.user[idx].name === value){
@@ -56,7 +55,13 @@ export default class department extends Component {
             todoActions.searchName(arr);
         }
     }
-    
+    stateButton = (idx) =>{
+        const { state } = this.props;
+        if(state.homeworkReviews.array.indexOf(idx) > -1){
+            return true;
+        }
+        return false;
+    }
     render() {
         const { state, todoActions } = this.props;
         const user = state.homeworkReviews.user;
@@ -75,10 +80,13 @@ export default class department extends Component {
                     user.map(idx => {
                         return(
                             <div className='userMidCont' key={idx}>
-                                <div className={this.chanceClassName(idx)} key={idx} onClick={this.checkUser.bind(this, idx)}>
+                                <Button className={this.chanceClassName(idx)} 
+                                    key={idx} onClick={this.checkUser.bind(this, idx)}
+                                    disabled={this.stateButton(idx)}
+                                >
                                     {state.user[idx].name}
                                     mid:{state.user[idx].mid}
-                                </div>
+                                </Button>
                             </div>
                         )                          
                     })

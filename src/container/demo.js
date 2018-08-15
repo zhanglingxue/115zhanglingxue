@@ -6,7 +6,7 @@ export default class DemoExample extends React.Component {
     isActionSheetActive: false,
     title: '',
     menus: [],
-    type:'ios',
+    type: 'ios'
   };
 
   handleShowActionSheet = () => {
@@ -20,7 +20,7 @@ export default class DemoExample extends React.Component {
         title: '示例菜单2',
         click: () => console.log('示例菜单2')
       }],
-      type:'ios',
+      type: 'ios'
     });
   }
 
@@ -36,7 +36,7 @@ export default class DemoExample extends React.Component {
         title: '示例菜单44',
         click: () => console.log('示例菜44')
       }],
-      type:'android',
+      type: 'android',
     });
   }
 

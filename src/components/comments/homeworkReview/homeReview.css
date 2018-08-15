@@ -32,6 +32,7 @@
     padding: 10px;
     width:100%;
     height:50px;
+    display: flex;
     border-bottom: 1px solid #e0e0e0;
 }
 .allSrearch{
@@ -77,8 +78,10 @@
     color:white;
 }
 .selectOption{
-    width:75%;
+    /* width:75%; */
+    display: 2;
 }
 .leftDelete{
     float: left;
+    display: 1;
 }
